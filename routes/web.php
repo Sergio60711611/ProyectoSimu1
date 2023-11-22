@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('login',"App\Http\Controllers\loginController@create");
+Route::get('inicio',"App\Http\Controllers\inicioController@create");

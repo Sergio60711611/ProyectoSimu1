@@ -11,22 +11,22 @@
 <body>
 <div class="form-structor">
 	<div class="signup">
-		<h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
+		<h2 class="form-title" id="signup"><span></span>Registrate</h2>
 		<div class="form-holder">
-			<input type="text" class="input" placeholder="Name" />
-			<input type="email" class="input" placeholder="Email" />
-			<input type="password" class="input" placeholder="Password" />
+			<input type="text" class="input" placeholder="Nombre" />
+			<input type="email" class="input" placeholder="Correo" />
+			<input type="password" class="input" placeholder="Contraseña" />
 		</div>
-		<button class="submit-btn">Sign up</button>
+		<button class="submit-btn">Registrar</button>
 	</div>
 	<div class="login slide-up">
 		<div class="center">
-			<h2 class="form-title" id="login"><span>or</span>Log in</h2>
+			<h2 class="form-title" id="login"><span></span>Iniciar Sesion</h2>
 			<div class="form-holder">
-				<input type="email" class="input" placeholder="Email" />
-				<input type="password" class="input" placeholder="Password" />
+				<input type="email" class="input" placeholder="Correo" />
+				<input type="password" class="input" placeholder="Contraseña" />
 			</div>
-			<button class="submit-btn">Log in</button>
+			<button class="submit-btn">Iniciar Sesion</button>
 		</div>
 	</div>
 </div>
