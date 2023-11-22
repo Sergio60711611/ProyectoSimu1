@@ -33,7 +33,7 @@
             <p class="sub-title">Grafico de Registro,</p>
             <p class="sub-title">imagen comparativa</p>
             <p class="sub-title">numeros generados</p>
-            <a href="join.html" class="btn">Empezar</a>
+            <a href="simulacion" class="btn">Empezar</a>
         </div>
     </section>
     <div class="home-page-circle-1"></div>

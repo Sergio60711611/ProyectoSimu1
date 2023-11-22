@@ -12,12 +12,12 @@
 		<div class="izquierda">	
 			<h2 class="form-title" id="signup"><span></span>AUTOMATICO</h2>
 			<div class="left-form">
-                <input type="number" class="input" name="c10" placeholder="c10" step="0.01" />
-                <input type="number" class="input" name="v10" placeholder="v10" step="0.01" />
-                <input type="number" class="input" name="d10" placeholder="d10" step="0.01" />
-                <input type="number" class="input" name="c20" placeholder="c20" step="0.01" />
-                <input type="number" class="input" name="v20" placeholder="v20" step="0.01" />
-                <input type="number" class="input" name="d20" placeholder="d20" step="0.01" />
+                <input type="number" class="input" name="c10" placeholder="costo 10" step="0.01" />
+                <input type="number" class="input" name="v10" placeholder="venta 10" step="0.01" />
+                <input type="number" class="input" name="d10" placeholder="devolucion 10" step="0.01" />
+                <input type="number" class="input" name="c20" placeholder="costo 20" step="0.01" />
+                <input type="number" class="input" name="v20" placeholder="venta 20" step="0.01" />
+                <input type="number" class="input" name="d20" placeholder="devolucion 20" step="0.01" />
 			</div>
 			<button type="submit" class="submit-btn">Registrar</button>
 		</div>
@@ -27,14 +27,14 @@
 		<div class="derecha">	
 			<h2 class="form-title" id="signup"><span></span>DANDO Q1 Y Q2</h2>
 			<div class="right-form">
-                <input type="number" class="input" name="c10" placeholder="c10" step="0.01" />
-                <input type="number" class="input" name="v10" placeholder="v10" step="0.01" />
-                <input type="number" class="input" name="d10" placeholder="d10" step="0.01" />
-                <input type="number" class="input" name="c20" placeholder="c20" step="0.01" />
-                <input type="number" class="input" name="v20" placeholder="v20" step="0.01" />
-                <input type="number" class="input" name="d20" placeholder="d20" step="0.01" />
-                <input type="number" class="input" name="Q1" placeholder="Q1" step="0.01" />
-                <input type="number" class="input" name="Q2" placeholder="Q2" step="0.01" />
+                <input type="number" class="input" name="c10" placeholder="costo 10" step="0.01" />
+                <input type="number" class="input" name="v10" placeholder="venta 10" step="0.01" />
+                <input type="number" class="input" name="d10" placeholder="devolucion 10" step="0.01" />
+                <input type="number" class="input" name="c20" placeholder="costo 20" step="0.01" />
+                <input type="number" class="input" name="v20" placeholder="venta 20" step="0.01" />
+                <input type="number" class="input" name="d20" placeholder="devolucion 20" step="0.01" />
+                <input type="number" class="input" name="Q1" placeholder="Q1 = cantidad optima" step="0.01" />
+                <input type="number" class="input" name="Q2" placeholder="Q2 = cantidad optima" step="0.01" />
 			</div>
 			<button type="submit" class="submit-btn">Registrar</button>
 		</div>
