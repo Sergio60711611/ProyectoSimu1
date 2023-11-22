@@ -15,7 +15,15 @@ class CreateSimulacionesTable extends Migration
     {
         Schema::create('simulaciones', function (Blueprint $table) {
             $table->id();
-            $table->integer('resultado')->unique();
+            $table->double('c10');
+            $table->double('v10');
+            $table->double('d10');
+            $table->double('c20');
+            $table->double('v20');
+            $table->double('d20');
+            $table->integer('Q1');
+            $table->integer('Q2');
+            $table->double('Utilidad');
             $table->foreignId('id_clientes')
                   ->constrained('clientes')
                   ->cascadeOnUpdate()

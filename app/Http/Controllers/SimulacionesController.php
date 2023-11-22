@@ -24,7 +24,8 @@ class SimulacionesController extends Controller
      */
     public function create()
     {
-        return view('simulacion');
+        $lista = simulaciones::all();
+        return view('simulacion', compact('lista'));
     }
 
     /**
@@ -132,11 +133,26 @@ class SimulacionesController extends Controller
             }
         }
 
+        $simulaciones=new Simulaciones();
+        $simulaciones->c10 = $request->c10;
+        $simulaciones->v10 = $request->v10;
+        $simulaciones->d10 = $request->d10;
+        $simulaciones->c20 = $request->c20;
+        $simulaciones->v20 = $request->v20;
+        $simulaciones->d20 = $request->d20;
+        $simulaciones->Q1 = $MejorQ1;
+        $simulaciones->Q2 = $MejorQ2;
+        $simulaciones->Utilidad = $MejorUtilidad;
+        $simulaciones->id_clientes = 1;
+        
+        $simulaciones->save();
+
         // Calculate the sum
         $sum = $MejorUtilidad;
 
         // Pass the sum to the view
-        return view('simulacion', compact('sum', 'MejorQ1', 'MejorQ2'));
+        $lista = simulaciones::all();
+        return view('simulacion', compact('sum', 'MejorQ1', 'MejorQ2', 'lista'));
 
     }
     public function storeEntrada(Request $request)
@@ -229,7 +245,29 @@ class SimulacionesController extends Controller
         $sum = $PromediosdePromediosUtilidadMeses;
 
         // Pass the sum to the view
-        return view('simulacion', compact('sum'));
+        //return view('simulacion', compact('sum'));
+        // Calculate the sum
+        $simulaciones=new Simulaciones();
+        $simulaciones->c10 = $request->c10;
+        $simulaciones->v10 = $request->v10;
+        $simulaciones->d10 = $request->d10;
+        $simulaciones->c20 = $request->c20;
+        $simulaciones->v20 = $request->v20;
+        $simulaciones->d20 = $request->d20;
+        $simulaciones->Q1 = $request->Q1;
+        $simulaciones->Q2 = $request->Q2;
+        $simulaciones->Utilidad = $PromediosdePromediosUtilidadMeses;
+        $simulaciones->id_clientes = 1;
+        
+        $simulaciones->save();
+
+        $MejorQ1 = $Q1;
+        $MejorQ2 = $Q2;
+
+        // Pass the sum to the view
+        $lista = simulaciones::all();
+        return view('simulacion', compact('sum', 'MejorQ1', 'MejorQ2', 'lista'));
+        
     }
 
     /**

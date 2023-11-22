@@ -41,80 +41,45 @@
 	</form>
 <div class="tabladerecha">
     <table>
-  <thead>
-    <tr>
-      <th>Columna 1</th>
-      <th>Columna 2</th>
-      <th>Columna 3</th>
-      <th>Columna 4</th>
-      <th>Columna 5</th>
-      <th>Columna 6</th>
-      <th>Columna 7</th>
-      <th>Columna 8</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- Fila 1 -->
-    <tr>
-      <td>Fila 1, Col 1</td>
-      <td>Fila 1, Col 2</td>
-      <td>Fila 1, Col 3</td>
-      <td>Fila 1, Col 4</td>
-      <td>Fila 1, Col 5</td>
-      <td>Fila 1, Col 6</td>
-      <td>Fila 1, Col 7</td>
-      <td>Fila 1, Col 8</td>
-    </tr>
-
-    <!-- Fila 2 -->
-    <tr>
-      <td>Fila 2, Col 1</td>
-      <td>Fila 2, Col 2</td>
-      <td>Fila 2, Col 3</td>
-      <td>Fila 2, Col 4</td>
-      <td>Fila 2, Col 5</td>
-      <td>Fila 2, Col 5</td>
-      <td>Fila 2, Col 5</td>
-      <td>Fila 2, Col 5</td>
-    </tr>
-<!-- Fila 3 -->
-    <tr>
-      <td>Fila 3, Col 1</td>
-      <td>Fila 3, Col 2</td>
-      <td>Fila 3, Col 3</td>
-      <td>Fila 3, Col 4</td>
-      <td>Fila 3, Col 5</td>
-      <td>Fila 3, Col 6</td>
-      <td>Fila 3, Col 7</td>
-      <td>Fila 3, Col 8</td>
-    </tr>
-<!-- Fila 4 -->
-    <tr>
-      <td>Fila 4, Col 1</td>
-      <td>Fila 4, Col 2</td>
-      <td>Fila 4, Col 3</td>
-      <td>Fila 4, Col 4</td>
-      <td>Fila 4, Col 5</td>
-      <td>Fila 4, Col 6</td>
-      <td>Fila 4, Col 7</td>
-      <td>Fila 4, Col 8</td>
-    </tr>
-<!-- Fila 5 -->
-    <tr>
-      <td>Fila 5, Col 1</td>
-      <td>Fila 5, Col 2</td>
-      <td>Fila 5, Col 3</td>
-      <td>Fila 5, Col 4</td>
-      <td>Fila 5, Col 5</td>
-      <td>Fila 5, Col 6</td>
-      <td>Fila 5, Col 7</td>
-      <td>Fila 5, Col 8</td>
-    </tr>
-
-    <!-- ... Repite este patrón para las filas restantes ... -->
-
-  </tbody>
-</table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Precio de Compra (10 días)</th>
+          <th>Precio de Venta (10 días)</th>
+          <th>Precio de Devolucion (10 días)</th>
+          <th>Precio de Compra (20 días)</th>
+          <th>Precio de Venta (20 días)</th>
+          <th>Precio de Devolucion (20 días)</th>
+          <th>Q1</th>
+          <th>Q2</th>
+          <th>Utilidad</th>
+        </tr>
+      </thead>
+      @php 
+        $counter = 1;
+      @endphp 
+      <tbody>
+      @foreach($lista as $simulacion)
+        <!-- Fila 1 -->
+        <tr>
+          <td>{{$counter}}</td>
+          @php 
+              $counter=$counter +1; 
+              
+          @endphp
+          <td>{{$simulacion->c10}}</td>
+          <td>{{$simulacion->v10}}</td>
+          <td>{{$simulacion->d10}}</td>
+          <td>{{$simulacion->c20}}</td>
+          <td>{{$simulacion->v20}}</td>
+          <td>{{$simulacion->d20}}</td>
+          <td>{{$simulacion->Q1}}</td>
+          <td>{{$simulacion->Q2}}</td>
+          <td>{{$simulacion->Utilidad}}</td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
 </div>
 
 </body>

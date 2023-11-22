@@ -19,7 +19,7 @@
         <nav class="main-nav">
             <ul>
                 <li><a href="login">Registrarse</a></li>
-                <li><a href="login">Iniciar Sesion</a></li>
+                <li><a href="simulacion">Iniciar Sesion</a></li>
             </ul>
         </nav>
     </header>
