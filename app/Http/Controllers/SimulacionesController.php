@@ -35,12 +35,12 @@ class SimulacionesController extends Controller
      */
     public function store(Request $request)
     {
-        $c10 = 1.5;
-        $v10 = 2;
-        $d10 = 0.9;
-        $c20 = 1.2;
-        $v20 = 2;
-        $d20 = 0.6;
+        $c10 = $request->c10;
+        $v10 = $request->v10;
+        $d10 = $request->d10;
+        $c20 = $request->c20;
+        $v20 = $request->v20;
+        $d20 = $request->d20;
 
         //$Q1 = $request->Q1;
         //$Q2 = $request->Q2;
