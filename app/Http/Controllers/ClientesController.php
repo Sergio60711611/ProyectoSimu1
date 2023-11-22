@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\clientes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\BD;
 
 class ClientesController extends Controller
 {
@@ -35,7 +37,20 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation= $request->validate([
+
+            'nombre' => 'required | min:3 | max: 30',
+            'correo' => 'required |email',
+            'contraseña' => 'required |numeric| digits_between:6,10',
+        ]);
+
+        $cliente=new Clientes();
+        $cliente->nombre = $request->nombre;
+        $cliente->correo = $request->correo;
+        $cliente->contraseña = $request->contraseña;
+        
+        $cliente->save();
+        return redirect('login');
     }
 
     /**

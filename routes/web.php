@@ -16,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//Frontend - Vistas
 Route::get('login',"App\Http\Controllers\loginController@create");
 Route::get('inicio',"App\Http\Controllers\inicioController@create");
+Route::get('simulacion',"App\Http\Controllers\SimulacionesController@create");
+
+//Backend
+Route::post('/clientecreado',"App\Http\Controllers\ClientesController@store"); //crear un registro
+Route::post('/simulacioncreada',"App\Http\Controllers\SimulacionesController@store"); //crear un registro
+Route::post('/simulacioncreadaEntrada',"App\Http\Controllers\SimulacionesController@storeEntrada"); //crear un registro
+//Route::get('/cliente/{id}/home',"App\Http\Controllers\homeController@createCliente");
