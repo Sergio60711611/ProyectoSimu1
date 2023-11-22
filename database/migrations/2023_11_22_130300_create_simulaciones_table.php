@@ -15,6 +15,11 @@ class CreateSimulacionesTable extends Migration
     {
         Schema::create('simulaciones', function (Blueprint $table) {
             $table->id();
+            $table->integer('resultado')->unique();
+            $table->foreignId('id_clientes')
+                  ->constrained('clientes')
+                  ->cascadeOnUpdate()
+                  ->cascadeOnDelete();
             $table->timestamps();
         });
     }
