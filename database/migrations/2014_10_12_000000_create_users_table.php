@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSimulacionsTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateSimulacionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('simulacions', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->integer('resultado');
-            $table->foreignId('id_cliente')
-                  ->constrained('cliente')
-                  ->cascadeOnUpdate()
-                  ->cascadeOnDelete();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateSimulacionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('simulacions');
+        Schema::dropIfExists('users');
     }
 }
