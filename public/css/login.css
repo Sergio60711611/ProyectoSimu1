@@ -1,6 +1,10 @@
 
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 
+p1 {
+	color: red;
+	font-size: 11px;
+}
 html,body {
 	position: relative;
 	min-height: 100vh;

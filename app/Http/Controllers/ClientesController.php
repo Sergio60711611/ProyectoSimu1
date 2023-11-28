@@ -50,7 +50,7 @@ class ClientesController extends Controller
         $cliente->contraseña = $request->contraseña;
         
         $cliente->save();
-        return redirect('login');
+        return redirect('/login')->with('alert', 'Cliente registrado correctamente');
     }
 
     /**
