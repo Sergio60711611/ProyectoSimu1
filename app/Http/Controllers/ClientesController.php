@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\clientes;
+use App\Models\simulaciones;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\BD;
@@ -50,6 +51,27 @@ class ClientesController extends Controller
         $cliente->contraseña = $request->contraseña;
         
         $cliente->save();
+
+        $lista = clientes::all();
+        $ultCli  = $lista->max('id');
+
+        $simulacion=new Simulaciones();
+        $simulacion->c10 = 1.5;
+        $simulacion->v10 = 2;
+        $simulacion->d10 = 0.9;
+        $simulacion->c20 = 1.2;
+        $simulacion->v20 = 2;
+        $simulacion->d20 = 0.6;
+
+        $simulacion->Q1 = 90;
+        $simulacion->Q2 = 121;
+        $simulacion->utilidad_meses = '{"1":117.69999999999999,"2":114.39999999999998,"3":118.80000000000001,"4":124.30000000000001,"5":121,"6":126.5,"7":123.19999999999999,"8":112.19999999999999,"9":114.39999999999998,"10":102.30000000000001,"11":115.5,"12":113.30000000000001}';
+        $simulacion->utilidad_iteraciones = '{"1":119.625,"2":116.50000000000001,"3":120.08333333333331,"4":116.96666666666665}';
+        $simulacion->utilidad = 118.29375;
+        $simulacion->id_clientes = $ultCli;
+        
+        $simulacion->save();
+        
         return redirect('/login')->with('alert', 'Cliente registrado correctamente');
     }
 

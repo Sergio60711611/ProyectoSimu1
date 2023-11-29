@@ -189,7 +189,7 @@
                                             <div class="widget-subheading">Utilidad máxima obtenida a partir de ordenar Q1 y Q2</div>
                                         </div>
                                         <div class="widget-content-right">
-                                            <div class="widget-numbers text-white"><span>136,5</span></div>
+                                            <div class="widget-numbers text-white"><span>136.5</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -231,9 +231,9 @@
                                                                 <div class="card">
                                                                     <div class="card-header" id="headingOne">
                                                                     <h5 class="mb-0">
-                                                                        <button class="btn collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
+                                                                        <div class="btn collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
                                                                         Dar valores a Q1 Y Q2
-                                                                        </button>
+                                                                        </div>
                                                                     </h5>
                                                                     </div>
 
