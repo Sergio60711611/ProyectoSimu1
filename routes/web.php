@@ -18,15 +18,13 @@ Route::get('/', function () {
 });
 //Frontend - Vistas
 Route::get('/login',"App\Http\Controllers\loginController@create");
-
 Route::get('/inicio',"App\Http\Controllers\inicioController@create");
 Route::get('/cliente/{id}',"App\Http\Controllers\loginController@createCliente");
-
-Route::get('simulacion',"App\Http\Controllers\SimulacionesController@create");
 
 //Backend
 Route::post('/clientecreado',"App\Http\Controllers\ClientesController@store"); //crear un registro
 Route::post('/inicioSesion',"App\Http\Controllers\loginController@inicioSesion");//Login
-Route::post('/simulacioncreada',"App\Http\Controllers\SimulacionesController@store"); //crear un registro
-Route::post('/simulacioncreadaEntrada',"App\Http\Controllers\SimulacionesController@storeEntrada"); //crear un registro
+
+
+Route::post('/iniciarSimulacion',"App\Http\Controllers\SimulacionesController@storeSimulacion"); //crear un registro
 //Route::get('/cliente/{id}/home',"App\Http\Controllers\homeController@createCliente");
