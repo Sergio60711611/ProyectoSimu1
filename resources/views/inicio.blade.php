@@ -34,6 +34,7 @@
                         </div>
                         <button class="close"></button>
                     </div>
+                    <!--
                     <ul class="header-menu nav">
                         <li class="nav-item">
                             <a href="javascript:void(0);" class="nav-link">
@@ -47,7 +48,7 @@
                                 Opcion 2
                             </a>
                         </li>
-                    </ul>        
+                    </ul>  -->      
                 </div>
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
@@ -152,7 +153,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>            <div class="row">
+                        </div>          
+                        <div class="row">
                             <div class="col-md-6 col-xl-4">
                                 <div class="card mb-3 widget-content" style="background-color: #6e98a9;">
                                     <div class="widget-content-wrapper text-white">
@@ -161,7 +163,7 @@
                                             <div class="widget-subheading">Cantidad óptima a ordenar en los primeros 10 dias del mes</div>
                                         </div>
                                         <div class="widget-content-right">
-                                            <div class="widget-numbers text-white"><span>120</span></div>
+                                            <div class="widget-numbers text-white"><span>89</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -174,7 +176,7 @@
                                             <div class="widget-subheading">Cantidad óptima a ordenar en los siguientes 20 dias del mes</div>
                                         </div>
                                         <div class="widget-content-right">
-                                            <div class="widget-numbers text-white"><span>120</span></div>
+                                            <div class="widget-numbers text-white"><span>126</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -187,7 +189,7 @@
                                             <div class="widget-subheading">Utilidad máxima obtenida a partir de ordenar Q1 y Q2</div>
                                         </div>
                                         <div class="widget-content-right">
-                                            <div class="widget-numbers text-white"><span>146,6</span></div>
+                                            <div class="widget-numbers text-white"><span>136,5</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -247,7 +249,7 @@
                                                             </div>
                                                             <!--Fin Q1 Y Q2-->
                                                             </p>
-                                                            <button type="submit" class="submit-btn">Iniciar Simulación</button>
+                                                            <button type="submit" class="submit-btn" style="background-color: #4e656e;">Iniciar Simulación</button>
                                                             <!--Fin range input-->
                                                         </form>
                                                     </div>
@@ -256,8 +258,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> 
                             <div class="col-md-12 col-lg-7">
+                            @include('msj') 
                                 <div class="mb-3 card">
                                     <div class="card-header-tab card-header-tab-animation card-header">
                                         <div class="card-header-title">
@@ -277,122 +280,183 @@
                                                     </div>
                                                 </div>
                                                 <!--Aqui termina el grafico 1-->
-                                                <h6 class="text-muted text-uppercase font-size-md opacity-5 font-weight-normal">Top Authors</h6>
-                                                <div class="scroll-area-sm">
-                                                    <div class="scrollbar-container">
-                                                        <ul class="rm-list-borders rm-list-borders-scroll list-group list-group-flush">
-                                                            <li class="list-group-item">
-                                                                <div class="widget-content p-0">
-                                                                    <div class="widget-content-wrapper">
-                                                                        <div class="widget-content-left mr-3">
-                                                                            <img width="42" class="rounded-circle" src="assets/images/avatars/9.jpg" alt="">
-                                                                        </div>
-                                                                        <div class="widget-content-left">
-                                                                            <div class="widget-heading">Ella-Rose Henry</div>
-                                                                            <div class="widget-subheading">Web Developer</div>
-                                                                        </div>
-                                                                        <div class="widget-content-right">
-                                                                            <div class="font-size-xlg text-muted">
-                                                                                <small class="opacity-5 pr-1">$</small>
-                                                                                <span>129</span>
-                                                                                <small class="text-danger pl-2">
-                                                                                    <i class="fa fa-angle-down"></i>
-                                                                                </small>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="list-group-item">
-                                                                <div class="widget-content p-0">
-                                                                    <div class="widget-content-wrapper">
-                                                                        <div class="widget-content-left mr-3">
-                                                                            <img width="42" class="rounded-circle" src="assets/images/avatars/5.jpg" alt="">
-                                                                        </div>
-                                                                        <div class="widget-content-left">
-                                                                            <div class="widget-heading">Ruben Tillman</div>
-                                                                            <div class="widget-subheading">UI Designer</div>
-                                                                        </div>
-                                                                        <div class="widget-content-right">
-                                                                            <div class="font-size-xlg text-muted">
-                                                                                <small class="opacity-5 pr-1">$</small>
-                                                                                <span>54</span>
-                                                                                <small class="text-success pl-2">
-                                                                                    <i class="fa fa-angle-up"></i>
-                                                                                </small>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="list-group-item">
-                                                                <div class="widget-content p-0">
-                                                                    <div class="widget-content-wrapper">
-                                                                        <div class="widget-content-left mr-3">
-                                                                            <img width="42" class="rounded-circle" src="assets/images/avatars/4.jpg" alt="">
-                                                                        </div>
-                                                                        <div class="widget-content-left">
-                                                                            <div class="widget-heading">Vinnie Wagstaff</div>
-                                                                            <div class="widget-subheading">Java Programmer</div>
-                                                                        </div>
-                                                                        <div class="widget-content-right">
-                                                                            <div class="font-size-xlg text-muted">
-                                                                                <small class="opacity-5 pr-1">$</small>
-                                                                                <span>429</span>
-                                                                                <small class="text-warning pl-2">
-                                                                                    <i class="fa fa-dot-circle"></i>
-                                                                                </small>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="list-group-item">
-                                                                <div class="widget-content p-0">
-                                                                    <div class="widget-content-wrapper">
-                                                                        <div class="widget-content-left mr-3">
-                                                                            <img width="42" class="rounded-circle" src="assets/images/avatars/3.jpg" alt="">
-                                                                        </div>
-                                                                        <div class="widget-content-left">
-                                                                            <div class="widget-heading">Ella-Rose Henry</div>
-                                                                            <div class="widget-subheading">Web Developer</div>
-                                                                        </div>
-                                                                        <div class="widget-content-right">
-                                                                            <div class="font-size-xlg text-muted">
-                                                                                <small class="opacity-5 pr-1">$</small>
-                                                                                <span>129</span>
-                                                                                <small class="text-danger pl-2">
-                                                                                    <i class="fa fa-angle-down"></i>
-                                                                                </small>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="list-group-item">
-                                                                <div class="widget-content p-0">
-                                                                    <div class="widget-content-wrapper">
-                                                                        <div class="widget-content-left mr-3">
-                                                                            <img width="42" class="rounded-circle" src="assets/images/avatars/2.jpg" alt="">
-                                                                        </div>
-                                                                        <div class="widget-content-left">
-                                                                            <div class="widget-heading">Ruben Tillman</div>
-                                                                            <div class="widget-subheading">UI Designer</div>
-                                                                        </div>
-                                                                        <div class="widget-content-right">
-                                                                            <div class="font-size-xlg text-muted">
-                                                                                <small class="opacity-5 pr-1">$</small>
-                                                                                <span>54</span>
-                                                                                <small class="text-success pl-2">
-                                                                                    <i class="fa fa-angle-up"></i>
-                                                                                </small>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
+                                                <!--Aqui empieza el grafico 2
+                                                <h6 class="text-muted text-uppercase font-size-md opacity-5 font-weight-normal">
+                                                    Promedio de utilidades resultantes de cuatro simulaciones
+                                                </h6>
+                                                <div class="card mb-3 widget-chart widget-chart2 text-left w-100">
+                                                    <div class="widget-chat-wrapper-outer">
+                                                        <div class="widget-chart-wrapper widget-chart-wrapper-lg opacity-10 m-0">
+                                                            <canvas id="myChart2" width="400" height="200"></canvas>
+                                                        </div>
                                                     </div>
+                                                </div>
+                                                Aqui termina el grafico 2-->
+                                                @php
+                                                $iteraciones = $ultSimulacionIt['utilidad_iteraciones'];
+                                                $primerElemento = reset($iteraciones);
+                                                $segundoElemento = next($iteraciones);
+                                                $tercerElemento = next($iteraciones);
+                                                $cuartoElemento = next($iteraciones);
+                                                @endphp
+                                                <!--Empiezan cuadros-->
+                                                <div class="row">
+                                                    <div class="col-md-6 col-lg-6">
+                                                        <div class="card-shadow-danger mb-3 widget-chart widget-chart2 text-left card">
+                                                            <div class="widget-content">
+                                                                <div class="widget-content-outer">
+                                                                    <div class="widget-content-wrapper">
+                                                                        <div class="widget-content-left pr-2 fsize-1">
+                                                                            <div class="widget-numbers mt-0 fsize-3 text-danger">{{$primerElemento}}</div>
+                                                                        </div>
+                                                                        <div class="widget-content-right w-100">
+                                                                            <div class="progress-bar-xs progress">
+                                                                                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widget-content-left fsize-1">
+                                                                        <div class="text-muted opacity-6">Iteracion 1</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-lg-6">
+                                                        <div class="card-shadow-success mb-3 widget-chart widget-chart2 text-left card">
+                                                            <div class="widget-content">
+                                                                <div class="widget-content-outer">
+                                                                    <div class="widget-content-wrapper">
+                                                                        <div class="widget-content-left pr-2 fsize-1">
+                                                                            <div class="widget-numbers mt-0 fsize-3 text-success">{{$segundoElemento}}</div>
+                                                                        </div>
+                                                                        <div class="widget-content-right w-100">
+                                                                            <div class="progress-bar-xs progress">
+                                                                                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widget-content-left fsize-1">
+                                                                        <div class="text-muted opacity-6">Iteracion 2</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                    <div class="row">   
+                                                    <div class="col-md-6 col-lg-6">
+                                                        <div class="card-shadow-warning mb-3 widget-chart widget-chart2 text-left card">
+                                                            <div class="widget-content">
+                                                                <div class="widget-content-outer">
+                                                                    <div class="widget-content-wrapper">
+                                                                        <div class="widget-content-left pr-2 fsize-1">
+                                                                            <div class="widget-numbers mt-0 fsize-3 text-warning">{{$tercerElemento}}</div>
+                                                                        </div>
+                                                                        <div class="widget-content-right w-100">
+                                                                            <div class="progress-bar-xs progress">
+                                                                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widget-content-left fsize-1">
+                                                                        <div class="text-muted opacity-6">Iteracion 3</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-lg-6">
+                                                        <div class="card-shadow-info mb-3 widget-chart widget-chart2 text-left card">
+                                                            <div class="widget-content">
+                                                                <div class="widget-content-outer">
+                                                                    <div class="widget-content-wrapper">
+                                                                        <div class="widget-content-left pr-2 fsize-1">
+                                                                            <div class="widget-numbers mt-0 fsize-3 text-info">{{$cuartoElemento}}</div>
+                                                                        </div>
+                                                                        <div class="widget-content-right w-100">
+                                                                            <div class="progress-bar-xs progress">
+                                                                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widget-content-left fsize-1">
+                                                                        <div class="text-muted opacity-6">Iteracion 4</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--Terminan cuadros-->
+                                                <h6 class="text-muted text-uppercase font-size-md opacity-5 font-weight-normal">
+                                                    Resultados de la ultima simulacion
+                                                </h6>
+                                                @php
+                                                    $Q1 = $ultSimulacion['Q1'];
+                                                    $Q2 = $ultSimulacion['Q2'];
+                                                    $Utilidad = $ultSimulacion['Utilidad'];
+                                                @endphp
+                                                <div>
+                                                    <ul class="rm-list-borders rm-list-borders-scroll list-group list-group-flush">
+                                                        <li class="list-group-item">
+                                                            <div class="widget-content p-0">
+                                                                <div class="widget-content-wrapper">
+                                                                    <div class="widget-content-left mr-3">
+                                                                        <img width="42" class="rounded-circle" src="assets/images/avatars/9.jpg" alt="">
+                                                                    </div>
+                                                                    <div class="widget-content-left">
+                                                                        <div class="widget-heading">Q1 - Cantidad 1</div>
+                                                                        <div class="widget-subheading">Cantidad óptima a ordenar los primeros 10 días del mes</div>
+                                                                    </div>
+                                                                    <div class="widget-content-right">
+                                                                        <div class="font-size-xlg text-muted">
+                                                                            <small class="opacity-5 pr-1">Unidades</small>
+                                                                            <span>{{$Q1}}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <div class="widget-content p-0">
+                                                                <div class="widget-content-wrapper">
+                                                                    <div class="widget-content-left mr-3">
+                                                                        <img width="42" class="rounded-circle" src="assets/images/avatars/5.jpg" alt="">
+                                                                    </div>
+                                                                    <div class="widget-content-left">
+                                                                        <div class="widget-heading">Q2 - Cantidad 2</div>
+                                                                        <div class="widget-subheading">Cantidad óptima a ordenar los siguientes 20 días del mes</div>
+                                                                    </div>
+                                                                    <div class="widget-content-right">
+                                                                        <div class="font-size-xlg text-muted">
+                                                                            <small class="opacity-5 pr-1">Unidades</small>
+                                                                            <span>{{$Q2}}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <div class="widget-content p-0">
+                                                                <div class="widget-content-wrapper">
+                                                                    <div class="widget-content-left mr-3">
+                                                                        <img width="42" class="rounded-circle" src="assets/images/avatars/4.jpg" alt="">
+                                                                    </div>
+                                                                    <div class="widget-content-left">
+                                                                        <div class="widget-heading">Utilidad</div>
+                                                                        <div class="widget-subheading">Utilidad obtenida a partir de Q1 Y Q2</div>
+                                                                    </div>
+                                                                    <div class="widget-content-right">
+                                                                        <div class="font-size-xlg text-muted">
+                                                                            <small class="opacity-5 pr-1">Bs</small>
+                                                                            <span>{{$Utilidad}}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
@@ -460,7 +524,7 @@
                                     <div class="card-header-tab card-header-tab-animation card-header">
                                         <div class="card-header-title">
                                             <i class="header-icon lnr-apartment icon-gradient bg-love-kiss"> </i>
-                                            Sales Report
+                                            Grafico de simulaciones realizadas por el usuario
                                         </div>
                                     </div>
                                     <div class="card-body">
@@ -477,93 +541,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-6 col-lg-3">
-                                <div class="card-shadow-danger mb-3 widget-chart widget-chart2 text-left card">
-                                    <div class="widget-content">
-                                        <div class="widget-content-outer">
-                                            <div class="widget-content-wrapper">
-                                                <div class="widget-content-left pr-2 fsize-1">
-                                                    <div class="widget-numbers mt-0 fsize-3 text-danger">71%</div>
-                                                </div>
-                                                <div class="widget-content-right w-100">
-                                                    <div class="progress-bar-xs progress">
-                                                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" style="width: 71%;"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="widget-content-left fsize-1">
-                                                <div class="text-muted opacity-6">Income Target</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="card-shadow-success mb-3 widget-chart widget-chart2 text-left card">
-                                    <div class="widget-content">
-                                        <div class="widget-content-outer">
-                                            <div class="widget-content-wrapper">
-                                                <div class="widget-content-left pr-2 fsize-1">
-                                                    <div class="widget-numbers mt-0 fsize-3 text-success">54%</div>
-                                                </div>
-                                                <div class="widget-content-right w-100">
-                                                    <div class="progress-bar-xs progress">
-                                                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100" style="width: 54%;"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="widget-content-left fsize-1">
-                                                <div class="text-muted opacity-6">Expenses Target</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="card-shadow-warning mb-3 widget-chart widget-chart2 text-left card">
-                                    <div class="widget-content">
-                                        <div class="widget-content-outer">
-                                            <div class="widget-content-wrapper">
-                                                <div class="widget-content-left pr-2 fsize-1">
-                                                    <div class="widget-numbers mt-0 fsize-3 text-warning">32%</div>
-                                                </div>
-                                                <div class="widget-content-right w-100">
-                                                    <div class="progress-bar-xs progress">
-                                                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100" style="width: 32%;"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="widget-content-left fsize-1">
-                                                <div class="text-muted opacity-6">Spendings Target</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="card-shadow-info mb-3 widget-chart widget-chart2 text-left card">
-                                    <div class="widget-content">
-                                        <div class="widget-content-outer">
-                                            <div class="widget-content-wrapper">
-                                                <div class="widget-content-left pr-2 fsize-1">
-                                                    <div class="widget-numbers mt-0 fsize-3 text-info">89%</div>
-                                                </div>
-                                                <div class="widget-content-right w-100">
-                                                    <div class="progress-bar-xs progress">
-                                                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="widget-content-left fsize-1">
-                                                <div class="text-muted opacity-6">Totals Target</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
@@ -574,13 +551,42 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var ctx = document.getElementById('myChart').getContext('2d');
+        
+        var datos1 = {!! json_encode($ultSimulacionMeses['utilidad_meses']) !!};
+        var valores1 = Object.values(datos1);
+
         var myChart = new Chart(ctx, {
-            type: 'line', // Tipo de gráfico, por ejemplo, 'bar', 'line', 'pie', etc.
+            type: 'bar', // Tipo de gráfico, por ejemplo, 'bar', 'line', 'pie', etc.
             data: {
                 labels: ['Mes 1', 'Mes 2', 'Mes 3', 'Mes 4', 'Mes 5', 'Mes 6', 'Mes 7', 'Mes 8', 'Mes 9', 'Mes 10', 'Mes 11', 'Mes 12'],
                 datasets: [{
-                    label: 'Dataset Label',
-                    data: [10, 20, 30, 40, 50, 60, 70, 10, 20, 30, 40, 50],
+                    label: 'Utilidad obtenida por mes',
+                    data: valores1,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)', // Color de fondo
+                    borderColor: 'rgba(75, 192, 192, 1)', // Color del borde
+                    borderWidth: 1 // Ancho del borde
+                }]
+            },
+            options: {
+                // Configuración adicional del gráfico
+            }
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var ctx = document.getElementById('myChart2').getContext('2d');
+
+        var datos2 = {!! json_encode($ultSimulacionIt['utilidad_iteraciones']) !!};
+        var valores2 = Object.values(datos2);
+
+        var myChart = new Chart(ctx, {
+            type: 'line', // Tipo de gráfico, por ejemplo, 'bar', 'line', 'pie', etc.
+            data: {
+                labels: ['Iteracion 1', 'Iteracion 2', 'Iteracion 3', 'Iteracion 4'],
+                datasets: [{
+                    label: 'Promedio de utilidades obtenidas',
+                    data: valores2,
                     backgroundColor: 'rgba(75, 192, 192, 0.2)', // Color de fondo
                     borderColor: 'rgba(75, 192, 192, 1)', // Color del borde
                     borderWidth: 1 // Ancho del borde

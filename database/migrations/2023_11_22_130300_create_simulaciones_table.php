@@ -23,6 +23,8 @@ class CreateSimulacionesTable extends Migration
             $table->double('d20');
             $table->integer('Q1');
             $table->integer('Q2');
+            $table->json('utilidad_meses');
+            $table->json('utilidad_iteraciones');
             $table->double('Utilidad');
             $table->foreignId('id_clientes')
                   ->constrained('clientes')

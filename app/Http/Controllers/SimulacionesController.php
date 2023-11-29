@@ -179,10 +179,12 @@ class SimulacionesController extends Controller
                         $MejorUtilidad = $PromediosdePromediosUtilidadMeses;
                         $MejorQ1 = $Q1;
                         $MejorQ2 = $Q2;
+                        $jsonUtilidadMesArray = json_encode($UtilidadMesArray);
+                        $jsonPromedioUtilidadMesArray = json_encode($PromedioUtilidadMesArray);
                     }
                 }
             }
-
+            
             $simulaciones=new Simulaciones();
             $simulaciones->c10 = $request->c10;
             $simulaciones->v10 = $request->v10;
@@ -192,6 +194,8 @@ class SimulacionesController extends Controller
             $simulaciones->d20 = $request->d20;
             $simulaciones->Q1 = $MejorQ1;
             $simulaciones->Q2 = $MejorQ2;
+            $simulaciones->utilidad_meses = $jsonUtilidadMesArray;
+            $simulaciones->utilidad_iteraciones = $jsonPromedioUtilidadMesArray;
             $simulaciones->Utilidad = $MejorUtilidad;
             $simulaciones->id_clientes = $idCliente;
             
@@ -216,8 +220,17 @@ class SimulacionesController extends Controller
                 return "Q1=\"{$item->Q1}\" y Q2=\"{$item->Q2}\"";
             })
             ->toArray();
+            
+            $numUltSimulacion  = $lista->max('id');
+            $ultSimulacionMeses = Simulaciones::find($numUltSimulacion); 
+            $ultSimulacionMeses['utilidad_meses'] = json_decode($ultSimulacionMeses['utilidad_meses'], true);
 
-            return redirect('/cliente/' . $idCliente)->with(compact('cliente', 'lista', 'utilidades','datosQ1Q2'));
+            $ultSimulacionIt = Simulaciones::find($numUltSimulacion); 
+            $ultSimulacionIt['utilidad_iteraciones'] = json_decode($ultSimulacionIt['utilidad_iteraciones'], true);
+
+            $ultSimulacion = Simulaciones::find($numUltSimulacion); 
+            
+            return redirect('/cliente/' . $idCliente)->with(compact('cliente', 'lista', 'utilidades','datosQ1Q2','ultSimulacionMeses','ultSimulacionIt','ultSimulacion'))->with('message', 'Simulacion realizada con éxito. Se encontraron los valores óptimos Q1 y Q2. Revise los resultados de su simulación:');
         } else {
             $idCliente = $request->id;
 
@@ -311,6 +324,9 @@ class SimulacionesController extends Controller
             // Pass the sum to the view
             //return view('simulacion', compact('sum'));
             // Calculate the sum
+            $jsonUtilidadMesArray = json_encode($UtilidadMesArray);
+            $jsonPromedioUtilidadMesArray = json_encode($PromedioUtilidadMesArray);
+
             $simulaciones=new Simulaciones();
             $simulaciones->c10 = $request->c10;
             $simulaciones->v10 = $request->v10;
@@ -320,6 +336,8 @@ class SimulacionesController extends Controller
             $simulaciones->d20 = $request->d20;
             $simulaciones->Q1 = $request->Q1;
             $simulaciones->Q2 = $request->Q2;
+            $simulaciones->utilidad_meses = $jsonUtilidadMesArray;
+            $simulaciones->utilidad_iteraciones = $jsonPromedioUtilidadMesArray;
             $simulaciones->Utilidad = $PromediosdePromediosUtilidadMeses;
             $simulaciones->id_clientes = $idCliente;
             
@@ -342,8 +360,16 @@ class SimulacionesController extends Controller
                 return "Q1=\"{$item->Q1}\" y Q2=\"{$item->Q2}\"";
             })
             ->toArray();
+            $numUltSimulacion  = $lista->max('id');
+            $ultSimulacionMeses = Simulaciones::find($numUltSimulacion); 
+            $ultSimulacionMeses['utilidad_meses'] = json_decode($ultSimulacionMeses['utilidad_meses'], true);
 
-            return redirect('/cliente/' . $idCliente)->with(compact('cliente', 'lista', 'utilidades','datosQ1Q2'));
+            $ultSimulacionIt = Simulaciones::find($numUltSimulacion); 
+            $ultSimulacionIt['utilidad_iteraciones'] = json_decode($ultSimulacionIt['utilidad_iteraciones'], true);
+
+            $ultSimulacion = Simulaciones::find($numUltSimulacion); 
+
+            return redirect('/cliente/' . $idCliente)->with(compact('cliente', 'lista', 'utilidades','datosQ1Q2','ultSimulacionMeses','ultSimulacionIt','ultSimulacion'))->with('message', 'Simulacion realizada con éxito. Revise los resultados de su simulación:');
         }
 
     }

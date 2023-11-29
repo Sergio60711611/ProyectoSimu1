@@ -32,7 +32,16 @@ class loginController extends Controller
             })
             ->toArray();
 
-        return view('inicio', compact('cliente','lista', 'utilidades','datosQ1Q2'));
+        $numUltSimulacion  = $lista->max('id');
+        $ultSimulacionMeses = Simulaciones::find($numUltSimulacion); 
+        $ultSimulacionMeses['utilidad_meses'] = json_decode($ultSimulacionMeses['utilidad_meses'], true);
+
+        $ultSimulacionIt = Simulaciones::find($numUltSimulacion); 
+        $ultSimulacionIt['utilidad_iteraciones'] = json_decode($ultSimulacionIt['utilidad_iteraciones'], true);
+
+        $ultSimulacion = Simulaciones::find($numUltSimulacion); 
+
+        return view('inicio', compact('cliente','lista', 'utilidades','datosQ1Q2','ultSimulacionMeses','ultSimulacionIt','ultSimulacion'));
     }
     public function inicioSesion(Request $request)
     {
@@ -71,7 +80,17 @@ class loginController extends Controller
                         return "Q1=\"{$item->Q1}\" y Q2=\"{$item->Q2}\"";
                     })
                     ->toArray();
-                return redirect('/cliente/' . $idCli)->with(compact('cliente', 'lista','utilidades','datosQ1Q2'));
+                
+                $numUltSimulacion  = $lista->max('id');
+                $ultSimulacionMeses = Simulaciones::find($numUltSimulacion); 
+                $ultSimulacionMeses['utilidad_meses'] = json_decode($ultSimulacionMeses['utilidad_meses'], true);
+
+                $ultSimulacionIt = Simulaciones::find($numUltSimulacion); 
+                $ultSimulacionIt['utilidad_iteraciones'] = json_decode($ultSimulacionIt['utilidad_iteraciones'], true);
+                
+                $ultSimulacion = Simulaciones::find($numUltSimulacion); 
+
+                return redirect('/cliente/' . $idCli)->with(compact('cliente', 'lista','utilidades','datosQ1Q2','ultSimulacionMeses','ultSimulacionIt','ultSimulacion'));
             }else{
                 session()->flash('alert', 'Contraseña incorrecta. Vuelve a intentarlo');
                 return redirect('/login');
