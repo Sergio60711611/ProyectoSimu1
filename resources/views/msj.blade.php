@@ -1,7 +1,7 @@
 <!---msj de cliente registrado correctamente -->
 @if(Session::has('message'))
   <div class="col-lg-12" id="msj">
-    <div class="alert alert-success alert-success-style1 alert-success-stylenone">
+    <div class="alert alert-success alert-success-style1 alert-success-stylenone" style="border-color:#8bc349; background-color: #8bc349; color:#ffffff;">
         <button type="button" class="close sucess-op" data-dismiss="alert" aria-label="Close">
             <span class="icon-sc-cl" aria-hidden="true">&times;</span>
         </button>
@@ -12,39 +12,4 @@
         </p>
     </div>
 </div>
-@endif
-
-@if(Session::has('messageTicket'))
-  <div class="col-lg-12" id="msj">
-    <div class="alert alert-success alert-success-style1 alert-success-stylenone" style="background-color:#53A790;border-color: #53A790;">
-        <button type="button" class="close sucess-op" data-dismiss="alert" aria-label="Close">
-            <span class="icon-sc-cl" aria-hidden="true">&times;</span>
-        </button>
-        <span class="adminpro-icon adminpro-checked-pro admin-check-sucess admin-check-pro-none"></span>
-        <p class="message-alert-none">
-            <div>{!! session::get('messageTicket') !!}</div>
-        </p>
-    </div>
-</div>
-@endif
-
-@if(Session::has('msjdelete'))
- <div class="alert alert-danger" role="alert" id="msj">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-    <p> 
-        <strong> {{ Session::get('msjdelete') }} </strong> 
-    </p>
-</div>
-@endif
-
-<!---msjs de actualizar registro del cliente -->
-@if(Session::has('msjupdate'))
-    <div class="alert alert-primary" role="alert" id="msj">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-      <strong> {{ Session::get('msjupdate') }} </strong> 
-    </div>
 @endif

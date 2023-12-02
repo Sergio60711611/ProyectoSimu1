@@ -155,7 +155,7 @@ class SimulacionesController extends Controller
                 
                             $UtilidadMes = $IngresosVentasReg + $IngresosVentasPro - $CostoTotalCompra;
 
-                            $UtilidadMesArray[$m] = $UtilidadMes;
+                            $UtilidadMesArray[$m] = number_format($UtilidadMes, 2, '.', '');
                         }
 
                         $SumUtilidadMes = 0;
@@ -164,7 +164,7 @@ class SimulacionesController extends Controller
                         }
                         $PromedioUtilidadMeses = $SumUtilidadMes / 12;
 
-                        $PromedioUtilidadMesArray[$n] = $PromedioUtilidadMeses;
+                        $PromedioUtilidadMesArray[$n] = number_format($PromedioUtilidadMeses, 2, '.', '');
                     }
                     //ACA TERMINA N
 
@@ -186,6 +186,7 @@ class SimulacionesController extends Controller
             }
             
             $simulaciones=new Simulaciones();
+            $simulaciones->tipo = 1;
             $simulaciones->c10 = $request->c10;
             $simulaciones->v10 = $request->v10;
             $simulaciones->d10 = $request->d10;
@@ -196,7 +197,7 @@ class SimulacionesController extends Controller
             $simulaciones->Q2 = $MejorQ2;
             $simulaciones->utilidad_meses = $jsonUtilidadMesArray;
             $simulaciones->utilidad_iteraciones = $jsonPromedioUtilidadMesArray;
-            $simulaciones->Utilidad = $MejorUtilidad;
+            $simulaciones->Utilidad = round($MejorUtilidad, 2);
             $simulaciones->id_clientes = $idCliente;
             
             $simulaciones->save();
@@ -230,7 +231,7 @@ class SimulacionesController extends Controller
 
             $ultSimulacion = Simulaciones::find($numUltSimulacion); 
             
-            return redirect('/cliente/' . $idCliente)->with(compact('cliente', 'lista', 'utilidades','datosQ1Q2','ultSimulacionMeses','ultSimulacionIt','ultSimulacion'))->with('message', 'Simulacion realizada con éxito. Se encontraron los valores óptimos Q1 y Q2. Revise los resultados de su simulación:');
+            return redirect('/cliente/' . $idCliente)->with(compact('cliente', 'lista', 'utilidades','datosQ1Q2','ultSimulacionMeses','ultSimulacionIt','ultSimulacion'))->with('message', 'Simulacion realizada con éxito. Se encontraron los valores "Cantidad 1" y "Cantidad 2" que generan más Utilidad Neta. Revise los resultados de su simulación:');
         } else {
             $idCliente = $request->id;
 
@@ -299,7 +300,7 @@ class SimulacionesController extends Controller
         
                     $UtilidadMes = $IngresosVentasReg + $IngresosVentasPro - $CostoTotalCompra;
     
-                    $UtilidadMesArray[$m] = $UtilidadMes;
+                    $UtilidadMesArray[$m] = number_format($UtilidadMes, 2, '.', '');
                 }
     
                 $SumUtilidadMes = 0;
@@ -308,7 +309,7 @@ class SimulacionesController extends Controller
                 }
                 $PromedioUtilidadMeses = $SumUtilidadMes / 12;
     
-                $PromedioUtilidadMesArray[$n] = $PromedioUtilidadMeses;
+                $PromedioUtilidadMesArray[$n] = number_format($PromedioUtilidadMeses, 2, '.', '');
             }
     
             $SumPromedioUtilidadMeses = 0;
@@ -328,6 +329,7 @@ class SimulacionesController extends Controller
             $jsonPromedioUtilidadMesArray = json_encode($PromedioUtilidadMesArray);
 
             $simulaciones=new Simulaciones();
+            $simulaciones->tipo = 2;
             $simulaciones->c10 = $request->c10;
             $simulaciones->v10 = $request->v10;
             $simulaciones->d10 = $request->d10;
@@ -338,9 +340,8 @@ class SimulacionesController extends Controller
             $simulaciones->Q2 = $request->Q2;
             $simulaciones->utilidad_meses = $jsonUtilidadMesArray;
             $simulaciones->utilidad_iteraciones = $jsonPromedioUtilidadMesArray;
-            $simulaciones->Utilidad = $PromediosdePromediosUtilidadMeses;
+            $simulaciones->Utilidad = round($PromediosdePromediosUtilidadMeses, 2);
             $simulaciones->id_clientes = $idCliente;
-            
             $simulaciones->save();
     
             $MejorQ1 = $Q1;
@@ -369,7 +370,7 @@ class SimulacionesController extends Controller
 
             $ultSimulacion = Simulaciones::find($numUltSimulacion); 
 
-            return redirect('/cliente/' . $idCliente)->with(compact('cliente', 'lista', 'utilidades','datosQ1Q2','ultSimulacionMeses','ultSimulacionIt','ultSimulacion'))->with('message', 'Simulacion realizada con éxito. Revise los resultados de su simulación:');
+            return redirect('/cliente/' . $idCliente)->with(compact('cliente', 'lista', 'utilidades','datosQ1Q2','ultSimulacionMeses','ultSimulacionIt','ultSimulacion'))->with('message', 'Simulacion realizada con éxito, se encontro la Utilidad neta generada a partir de pedir "Cantidad 1" y "Cantidad 2". Revise los resultados de su simulación:');
         }
 
     }

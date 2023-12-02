@@ -15,12 +15,13 @@ class CreateSimulacionesTable extends Migration
     {
         Schema::create('simulaciones', function (Blueprint $table) {
             $table->id();
-            $table->double('c10');
-            $table->double('v10');
-            $table->double('d10');
-            $table->double('c20');
-            $table->double('v20');
-            $table->double('d20');
+            $table->integer('tipo');
+            $table->double('c10', 10, 2);
+            $table->double('v10', 10, 2);
+            $table->double('d10', 10, 2);
+            $table->double('c20', 10, 2);
+            $table->double('v20', 10, 2);
+            $table->double('d20', 10, 2);
             $table->integer('Q1');
             $table->integer('Q2');
             $table->json('utilidad_meses');

@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="/css/inicio.css">
     <title>Simulación Caso 1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
-    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
     <link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Quantico' rel='stylesheet' type='text/css'>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -27,28 +27,22 @@
         <div class="app-header header-shadow">
             <div class="app-header__content">
                 <div class="app-header-left">
+                    <!--
                     <div class="search-wrapper">
                         <div class="input-holder">
                             <input type="text" class="search-input" placeholder="Type to search">
                             <button class="search-icon"><span></span></button>
                         </div>
                         <button class="close"></button>
-                    </div>
-                    <!--
+                    </div>-->
                     <ul class="header-menu nav">
                         <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-database"> </i>
-                                Opcion 1
+                            <a href="{{url ('/cliente/'. $id .'/ayuda')}}" class="nav-link">
+                            <i class="fa fa-question-circle nav-link-icon"></i>
+                                Ayuda
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-database"> </i>
-                                Opcion 2
-                            </a>
-                        </li>
-                    </ul>  -->      
+                    </ul>    
                 </div>
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
@@ -159,11 +153,11 @@
                                 <div class="card mb-3 widget-content" style="background-color: #6e98a9;">
                                     <div class="widget-content-wrapper text-white">
                                         <div class="widget-content-left">
-                                            <div class="widget-heading">Q1 - Cantidad 1</div>
-                                            <div class="widget-subheading">Cantidad óptima a ordenar en los primeros 10 dias del mes</div>
+                                            <div class="widget-heading">Cantidad 1</div>
+                                            <div class="widget-subheading">Cantidad óptima a comprar para los<p> primeros 10 dias del mes</div>
                                         </div>
                                         <div class="widget-content-right">
-                                            <div class="widget-numbers text-white"><span>89</span></div>
+                                            <div class="widget-numbers text-white">Uds. <span>89</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -172,11 +166,11 @@
                                 <div class="card mb-3 widget-content" style="background-color: #7a8082;">
                                     <div class="widget-content-wrapper text-white">
                                         <div class="widget-content-left">
-                                            <div class="widget-heading">Q2- Cantidad 2</div>
-                                            <div class="widget-subheading">Cantidad óptima a ordenar en los siguientes 20 dias del mes</div>
+                                            <div class="widget-heading">Cantidad 2</div>
+                                            <div class="widget-subheading">Cantidad óptima a comprar para los<p> siguientes 20 dias del mes</div>
                                         </div>
                                         <div class="widget-content-right">
-                                            <div class="widget-numbers text-white"><span>126</span></div>
+                                            <div class="widget-numbers text-white">Uds. <span>126</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -186,10 +180,10 @@
                                     <div class="widget-content-wrapper text-white">
                                         <div class="widget-content-left">
                                             <div class="widget-heading">Utilidad</div>
-                                            <div class="widget-subheading">Utilidad máxima obtenida a partir de ordenar Q1 y Q2</div>
+                                            <div class="widget-subheading">Utilidad neta obtenida a partir de<p>comprar "Cantidad1" y "Cantidad2".</div>
                                         </div>
                                         <div class="widget-content-right">
-                                            <div class="widget-numbers text-white"><span>136.5</span></div>
+                                            <div class="widget-numbers text-white">Bs. <span>136.54</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -203,46 +197,79 @@
                                             <i class="header-icon lnr-rocket icon-gradient bg-tempting-azure"> </i>
                                             NUEVA SIMULACIÓN
                                         </div>
+                                        <ul class="nav">
+                                            <li class="nav-item"><a class="active nav-link" onclick="resetForm(); setActiveTab('last')"><h9>Dar valores</h9></a></li>
+                                            <li class="nav-item"><a class="nav-link" onclick="setDefaultValues(); setActiveTab('current')"><h9>Valores Base</h9></a></li>
+                                        </ul>
+                                        <script>
+                                            function setActiveTab(tab) {
+                                                // Obtener todos los elementos nav-link
+                                                var navLinks = document.querySelectorAll('.nav-link');
+                                                // Eliminar la clase 'active' de todos los elementos
+                                                navLinks.forEach(function (link) {
+                                                    link.classList.remove('active');
+                                                });
+                                                // Agregar la clase 'active' al elemento clicado
+                                                event.target.classList.add('active');
+                                            }
+                                            function resetForm() {
+                                                document.getElementById("simulacionForm").reset();
+                                            }
+
+                                            function setDefaultValues() {
+                                                document.getElementsByName("c10")[0].value = "1.5";
+                                                document.getElementsByName("v10")[0].value = "2";
+                                                document.getElementsByName("d10")[0].value = "0.9";
+                                                document.getElementsByName("c20")[0].value = "1.2";
+                                                document.getElementsByName("v20")[0].value = "2";
+                                                document.getElementsByName("d20")[0].value = "0.6";
+                                            }
+                                        </script>
                                     </div>
                                     <div class="tab-content">
                                         <div class="tab-pane fade active show" id="tab-eg-55">
                                             <div class="pt-2 card-body">
                                                 <div class="row">
                                                     <div class="col-md-12" >
-                                                        <form action="/iniciarSimulacion" method="POST" role="form">
+                                                        <h10 style="color: #bdbdbd;">Para iniciar una nueva simulación llenar los siguientes datos:</h10>
+                                                        <p></p>
+                                                        <form id="simulacionForm" action="/iniciarSimulacion" method="POST" role="form">
                                                             {{csrf_field()}}
                                                             <!--Inicio rolls-->
                                                             <label>Precio de Compra (10 días)</label>
-                                                            <input type="number" class="input" name="c10" value="1.5" step="0.1" min="0" max="5"/>
+                                                            <input type="number" class="input" name="c10" placeholder="Ingrese el precio de compra de los primeros 10 dias del mes" step="0.1" min="0" max="5" required/><spam> </spam><label>Bs. </label>
                                                             <label>Precio de Venta (10 días)</label>
-                                                            <input type="number" class="input" name="v10" value="2" step="0.1" min="0" max="5"/>
+                                                            <input type="number" class="input" name="v10" placeholder="Ingrese el precio de venta de los primeros 10 dias del mes" step="0.1" min="0" max="5" required/><spam> </spam><label>Bs. </label>
                                                             <label>Precio de Devolucion (10 días)</label>
-                                                            <input type="number" class="input" name="d10" value="0.9" step="0.1" min="0" max="5"/>
+                                                            <input type="number" class="input" name="d10" placeholder="Ingrese el precio de devolución de los primeros 10 dias del mes" step="0.1" min="0" max="5" required/><spam> </spam><label>Bs. </label>
                                                             <label>Precio de Compra (20 días)</label>
-                                                            <input type="number" class="input" name="c20" value="1.2" step="0.1" min="0" max="5"/>
+                                                            <input type="number" class="input" name="c20" placeholder="Ingrese el precio de compra de los siguientes 20 dias del mes" step="0.1" min="0" max="5" required/><spam> </spam><label>Bs. </label>
                                                             <label>Precio de Venta (20 días)</label>
-                                                            <input type="number" class="input" name="v20" value="2" step="0.1" min="0" max="5"/>
+                                                            <input type="number" class="input" name="v20" placeholder="Ingrese el precio de venta de los siguientes 20 dias del mes" step="0.1" min="0" max="5" required/><spam> </spam><label>Bs. </label>
                                                             <label>Precio de Devolucion (20 días)</label>
-                                                            <input type="number" class="input" name="d20" value="0.6" step="0.1" min="0" max="5"/>
+                                                            <input type="number" class="input" name="d20" placeholder="Ingrese el precio de devolución de los siguientes 20 dias del mes" step="0.1" min="0" max="5" required/><spam> </spam><label>Bs. </label>
                                                             <input type="hidden" class="form-control" name="id" value="{{$id}}"></input>
                                                             <p>
+                                                            </p>
                                                             <!--Inicio Q1 Y Q2-->
+                                                            <h10 style="color: #bdbdbd;">En caso de querer obtener la utilidad a partir de ingresar los valores de "Cantidad 1" y "Cantidad 2" llenar los siguientes datos:</h10>
+                                                            <p>
+                                                            </p>
                                                             <div id="accordion">
                                                                 <div class="card">
                                                                     <div class="card-header" id="headingOne">
                                                                     <h5 class="mb-0">
                                                                         <div class="btn collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
-                                                                        Dar valores a Q1 Y Q2
+                                                                        Obtener utilidad a partir de Cantidad 1 y Cantidad 2
                                                                         </div>
                                                                     </h5>
                                                                     </div>
-
-                                                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                                                         <div class="card-body">
-                                                                            <label>Q1 - Cantidad 1</label> 
-                                                                            <input type="number" class="input" name="Q1" placeholder="Ingresa la cantidad 1" value = "0" step="1" min="0" max="110"/>
-                                                                            <label>Q2 - Cantidad 2</label>
-                                                                            <input type="number" class="input" name="Q2" placeholder="Ingresa la cantidad 2" value = "0" step="1" min="0" max="160"/>
+                                                                            <label>Cantidad a ordenar para los primeros 10 dias del mes</label> 
+                                                                            <input id ="inputQ1" type="number" class="input" name="Q1" placeholder="Ingresa la cantidad 1" value = "0" step="1" min="0" max="110" required/><spam> </spam><label>Uds. </label>
+                                                                            <label>Cantidad a ordenar para los siguientes 20 dias del mes</label>
+                                                                            <input id ="inputQ1" type="number" class="input" name="Q2" placeholder="Ingresa la cantidad 2" value = "0" step="1" min="0" max="160" required/><spam> </spam><label>Uds. </label>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -307,7 +334,7 @@
                                                                 <div class="widget-content-outer">
                                                                     <div class="widget-content-wrapper">
                                                                         <div class="widget-content-left pr-2 fsize-1">
-                                                                            <div class="widget-numbers mt-0 fsize-3 text-danger">{{$primerElemento}}</div>
+                                                                            <div class="widget-numbers mt-0 fsize-3 text-danger">{{$primerElemento}}Bs.</div>
                                                                         </div>
                                                                         <div class="widget-content-right w-100">
                                                                             <div class="progress-bar-xs progress">
@@ -316,7 +343,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="widget-content-left fsize-1">
-                                                                        <div class="text-muted opacity-6">Iteracion 1</div>
+                                                                        <div class="text-muted opacity-6">Iteración 1</div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -328,7 +355,7 @@
                                                                 <div class="widget-content-outer">
                                                                     <div class="widget-content-wrapper">
                                                                         <div class="widget-content-left pr-2 fsize-1">
-                                                                            <div class="widget-numbers mt-0 fsize-3 text-success">{{$segundoElemento}}</div>
+                                                                            <div class="widget-numbers mt-0 fsize-3 text-success">{{$segundoElemento}}Bs.</div>
                                                                         </div>
                                                                         <div class="widget-content-right w-100">
                                                                             <div class="progress-bar-xs progress">
@@ -337,7 +364,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="widget-content-left fsize-1">
-                                                                        <div class="text-muted opacity-6">Iteracion 2</div>
+                                                                        <div class="text-muted opacity-6">Iteración 2</div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -351,7 +378,7 @@
                                                                 <div class="widget-content-outer">
                                                                     <div class="widget-content-wrapper">
                                                                         <div class="widget-content-left pr-2 fsize-1">
-                                                                            <div class="widget-numbers mt-0 fsize-3 text-warning">{{$tercerElemento}}</div>
+                                                                            <div class="widget-numbers mt-0 fsize-3 text-warning">{{$tercerElemento}}Bs.</div>
                                                                         </div>
                                                                         <div class="widget-content-right w-100">
                                                                             <div class="progress-bar-xs progress">
@@ -360,7 +387,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="widget-content-left fsize-1">
-                                                                        <div class="text-muted opacity-6">Iteracion 3</div>
+                                                                        <div class="text-muted opacity-6">Iteración 3</div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -372,7 +399,7 @@
                                                                 <div class="widget-content-outer">
                                                                     <div class="widget-content-wrapper">
                                                                         <div class="widget-content-left pr-2 fsize-1">
-                                                                            <div class="widget-numbers mt-0 fsize-3 text-info">{{$cuartoElemento}}</div>
+                                                                            <div class="widget-numbers mt-0 fsize-3 text-info">{{$cuartoElemento}}Bs.</div>
                                                                         </div>
                                                                         <div class="widget-content-right w-100">
                                                                             <div class="progress-bar-xs progress">
@@ -381,7 +408,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="widget-content-left fsize-1">
-                                                                        <div class="text-muted opacity-6">Iteracion 4</div>
+                                                                        <div class="text-muted opacity-6">Iteración 4</div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -406,8 +433,8 @@
                                                                         <img width="42" class="rounded-circle" src="assets/images/avatars/9.jpg" alt="">
                                                                     </div>
                                                                     <div class="widget-content-left">
-                                                                        <div class="widget-heading">Q1 - Cantidad 1</div>
-                                                                        <div class="widget-subheading">Cantidad óptima a ordenar los primeros 10 días del mes</div>
+                                                                        <div class="widget-heading">Cantidad 1</div>
+                                                                        <div class="widget-subheading">Cantidad de revistas a comprar los primeros 10 días del mes</div>
                                                                     </div>
                                                                     <div class="widget-content-right">
                                                                         <div class="font-size-xlg text-muted">
@@ -425,8 +452,8 @@
                                                                         <img width="42" class="rounded-circle" src="assets/images/avatars/5.jpg" alt="">
                                                                     </div>
                                                                     <div class="widget-content-left">
-                                                                        <div class="widget-heading">Q2 - Cantidad 2</div>
-                                                                        <div class="widget-subheading">Cantidad óptima a ordenar los siguientes 20 días del mes</div>
+                                                                        <div class="widget-heading">Cantidad 2</div>
+                                                                        <div class="widget-subheading">Cantidad de revistas a comprar los siguientes 20 días del mes</div>
                                                                     </div>
                                                                     <div class="widget-content-right">
                                                                         <div class="font-size-xlg text-muted">
@@ -444,8 +471,8 @@
                                                                         <img width="42" class="rounded-circle" src="assets/images/avatars/4.jpg" alt="">
                                                                     </div>
                                                                     <div class="widget-content-left">
-                                                                        <div class="widget-heading">Utilidad</div>
-                                                                        <div class="widget-subheading">Utilidad obtenida a partir de Q1 Y Q2</div>
+                                                                        <div class="widget-heading">Utilidad Neta</div>
+                                                                        <div class="widget-subheading">Utilidad neta obtenida a partir de ordenar Cantidad 1 y Cantidad 2</div>
                                                                     </div>
                                                                     <div class="widget-content-right">
                                                                         <div class="font-size-xlg text-muted">
@@ -461,6 +488,47 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="d-block card-footer">
+                                        <h6 class="text-muted text-uppercase font-size-md opacity-5 font-weight-normal">
+                                            CONCLUSIÓN
+                                        </h6>
+                                        @php
+                                            $tipo = $ultSimulacion['tipo'];
+                                        @endphp
+                                        @if($tipo == 1)
+                                        <ul class="rm-list-borders rm-list-borders-scroll list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <div class="widget-content p-0">
+                                                    <div class="widget-content-wrapper">
+                                                        <div class="widget-content-left mr-3">
+                                                            <img width="42" class="rounded-circle" src="assets/images/avatars/9.jpg" alt="">
+                                                        </div>
+                                                        <div class="widget-content-left">
+                                                            <div class="widget-heading">Simulación Automática:</div>
+                                                            <div style="color:black;">Con los valores dados el vendedor debera pedir {{$Q1}} Uds. de revistas los primeros 10 días del mes y {{$Q2}} Uds. de revistas los siguientes 20 días del mes para así obtener la ganancia máxima posible que es: {{$Utilidad}} Bs.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        @elseif($tipo == 2)
+                                        <ul class="rm-list-borders rm-list-borders-scroll list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <div class="widget-content p-0">
+                                                    <div class="widget-content-wrapper">
+                                                        <div class="widget-content-left mr-3">
+                                                            <img width="42" class="rounded-circle" src="assets/images/avatars/9.jpg" alt="">
+                                                        </div>
+                                                        <div class="widget-content-left">
+                                                            <div class="widget-heading">Simulación ingresando los valores de "Cantidad 1" y "Cantidad 2":</div>
+                                                            <div class="widget-subheading" style="color:black;">Si el vendedor de revistas pide {{$Q1}} Uds. de revistas los primeros 10 días del mes y {{$Q2}} Uds. de revistas los siguientes 10 días del mes, entonces obtendra una Utilidad Neta de {{$Utilidad}} Bs.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -470,20 +538,21 @@
                                 <div class="main-card mb-3 card">
                                     <div class="card-header">Simulaciones realizadas por el usuario
                                     </div>
-                                    <div class="table-responsive">
+                                    <div class="table-responsive" style="margin:5px;">
                                         <table class="align-middle mb-0 table table-borderless table-striped table-hover">
                                             <thead>
                                             <tr>
                                                 <th class="text-center">#</th>
                                                 <th class="text-center">Precio de Compra (10 días)</th>
                                                 <th class="text-center">Precio de Venta (10 días)</th>
-                                                <th class="text-center">Precio de Devolucion (10 días)</th>
+                                                <th class="text-center">Precio de Devolución (10 días)</th>
                                                 <th class="text-center">Precio de Compra (20 días)</th>
                                                 <th class="text-center">Precio de Venta (20 días)</th>
-                                                <th class="text-center">Precio de Devolucion (20 días)</th>
+                                                <th class="text-center">Precio de Devolución (20 días)</th>
                                                 <th class="text-center">Cantidad 1</th>
                                                 <th class="text-center">Cantidad 2</th>
                                                 <th class="text-center">Utilidad Obtenida</th>
+                                                <th class="text-center">Ver</th>
                                             </tr>
                                             </thead>
                                             @php 
@@ -498,15 +567,19 @@
                                                     $counter=$counter +1; 
                                                     
                                                 @endphp
-                                                <td class="text-center">{{$simulacion->c10}}</td>
-                                                <td class="text-center">{{$simulacion->v10}}</td>
-                                                <td class="text-center">{{$simulacion->d10}}</td>
-                                                <td class="text-center">{{$simulacion->c20}}</td>
-                                                <td class="text-center">{{$simulacion->v20}}</td>
-                                                <td class="text-center">{{$simulacion->d20}}</td>
-                                                <td class="text-center">{{$simulacion->Q1}}</td>
-                                                <td class="text-center">{{$simulacion->Q2}}</td>
-                                                <td>{{$simulacion->Utilidad}}</td>
+                                                <td class="text-center">{{$simulacion->c10}} Bs.</td>
+                                                <td class="text-center">{{$simulacion->v10}} Bs.</td>
+                                                <td class="text-center">{{$simulacion->d10}} Bs.</td>
+                                                <td class="text-center">{{$simulacion->c20}} Bs.</td>
+                                                <td class="text-center">{{$simulacion->v20}} Bs.</td>
+                                                <td class="text-center">{{$simulacion->d20}} Bs.</td>
+                                                <td class="text-center">{{$simulacion->Q1}} Uds.</td>
+                                                <td class="text-center">{{$simulacion->Q2}} Uds.</td>
+                                                <td class="text-center">{{$simulacion->Utilidad}} Bs.</td>
+                                                <td><a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id) }}" title="Ver Detalle" style="background-color: #6e98a9; color: white; padding: 6px; margin:5px; border-radius: 3px;">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                                </td>
                                             </tr>
                                             @endforeach
                                             </tbody>
@@ -537,7 +610,12 @@
                                                     </div>
                                             </div>
                                         </div>
+                                        <p></p>
+                                        <h8>Q1 = Cantidad a ordenar para los primeros 10 días del mes</h8><p>
+                                        <h8>Q2 = Cantidad a ordenar para los siguientes 20 días del mes</h8>
                                     </div>
+                                    
+                                    <div class="item">
                                 </div>
                             </div>
                         </div>
@@ -560,7 +638,7 @@
             data: {
                 labels: ['Mes 1', 'Mes 2', 'Mes 3', 'Mes 4', 'Mes 5', 'Mes 6', 'Mes 7', 'Mes 8', 'Mes 9', 'Mes 10', 'Mes 11', 'Mes 12'],
                 datasets: [{
-                    label: 'Utilidad obtenida por mes',
+                    label: 'Utilidad obtenida por mes (Bs.)',
                     data: valores1,
                     backgroundColor: 'rgba(75, 192, 192, 0.2)', // Color de fondo
                     borderColor: 'rgba(75, 192, 192, 1)', // Color del borde
@@ -611,7 +689,7 @@
             data: {
                 labels: meses,
                 datasets: [{
-                    label: 'Utilidades obtenidas',
+                    label: 'Promedio de utilidades obtenidas por mes (Bs.)',
                     data: datos,
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',

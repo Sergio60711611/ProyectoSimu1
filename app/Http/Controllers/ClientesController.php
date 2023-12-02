@@ -25,9 +25,23 @@ class ClientesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createAyuda($id)
     {
-        //
+        $cliente = Clientes::find($id);
+        return view('ayuda', compact('cliente'));
+    }
+    public function createSimuDetalle($id, $idSim)
+    {
+        $cliente = Clientes::find($id);
+        $simulacion = simulaciones::find($idSim);
+
+        $simulacionIt = Simulaciones::find($idSim);
+        $simulacionIt['utilidad_iteraciones'] = json_decode($simulacionIt['utilidad_iteraciones'], true);
+
+        $simulacionMeses = Simulaciones::find($idSim); 
+        $simulacionMeses['utilidad_meses'] = json_decode($simulacionMeses['utilidad_meses'], true);
+
+        return view('detalleSimu', compact('cliente','simulacion','simulacionIt','simulacionMeses'));
     }
 
     /**
@@ -56,6 +70,7 @@ class ClientesController extends Controller
         $ultCli  = $lista->max('id');
 
         $simulacion=new Simulaciones();
+        $simulacion->tipo = 1;
         $simulacion->c10 = 1.5;
         $simulacion->v10 = 2;
         $simulacion->d10 = 0.9;
@@ -65,9 +80,9 @@ class ClientesController extends Controller
 
         $simulacion->Q1 = 90;
         $simulacion->Q2 = 121;
-        $simulacion->utilidad_meses = '{"1":117.69999999999999,"2":114.39999999999998,"3":118.80000000000001,"4":124.30000000000001,"5":121,"6":126.5,"7":123.19999999999999,"8":112.19999999999999,"9":114.39999999999998,"10":102.30000000000001,"11":115.5,"12":113.30000000000001}';
-        $simulacion->utilidad_iteraciones = '{"1":119.625,"2":116.50000000000001,"3":120.08333333333331,"4":116.96666666666665}';
-        $simulacion->utilidad = 118.29375;
+        $simulacion->utilidad_meses = '{"1":117.69,"2":114.39,"3":118.81,"4":124.31,"5":121,"6":126.54,"7":123.19,"8":112.19,"9":114.39,"10":102.31,"11":115.5,"12":113.31}';
+        $simulacion->utilidad_iteraciones = '{"1":119.62,"2":116.51,"3":120.08,"4":116.95}';
+        $simulacion->utilidad = 118.24;
         $simulacion->id_clientes = $ultCli;
         
         $simulacion->save();

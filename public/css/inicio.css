@@ -1,5 +1,13 @@
+#inputQ1{
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 input {
-    width: 100%;
+    width: 93%;
     padding: 10px;
     margin-bottom: 16px;
     box-sizing: border-box;

@@ -20,6 +20,8 @@ Route::get('/', function () {
 Route::get('/login',"App\Http\Controllers\loginController@create");
 Route::get('/inicio',"App\Http\Controllers\inicioController@create");
 Route::get('/cliente/{id}',"App\Http\Controllers\loginController@createCliente");
+Route::get('/cliente/{id}/ayuda',"App\Http\Controllers\ClientesController@createAyuda");
+Route::get('/cliente/{id}/simulacion/{idSim}',"App\Http\Controllers\ClientesController@createSimuDetalle");
 
 //Backend
 Route::post('/clientecreado',"App\Http\Controllers\ClientesController@store"); //crear un registro
@@ -27,4 +29,3 @@ Route::post('/inicioSesion',"App\Http\Controllers\loginController@inicioSesion")
 
 
 Route::post('/iniciarSimulacion',"App\Http\Controllers\SimulacionesController@storeSimulacion"); //crear un registro
-//Route::get('/cliente/{id}/home',"App\Http\Controllers\homeController@createCliente");
