@@ -6,7 +6,9 @@
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="/css/inicio.css">
-    <title>Simulación Caso 1</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/yhqCG51/osito-Icono.png" />
+    <meta name="theme-color" content="#1885ed">
+    <title>SimulaRevistas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="msapplication-tap-highlight" content="no">
     <link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet">
@@ -73,6 +75,10 @@
                                             <div tabindex="-1" class="dropdown-divider"></div>
                                             <div type="button" tabindex="0" class="dropdown-item">Nombre: {{$nombre}}</div>
                                             <div type="button" tabindex="0" class="dropdown-item">Correo: {{$correo}}</div>
+                                            <div tabindex="-1" class="dropdown-divider"></div>
+                                            <div type="button" tabindex="0" class="dropdown-item">
+                                                <a href="{{url ('/')}}">Cerrar sesión</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

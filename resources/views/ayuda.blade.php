@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="/css/ayuda.css">
-    <title>Simulación Caso 1</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/yhqCG51/osito-Icono.png" />
+    <meta name="theme-color" content="#1885ed">
+    <title>SimulaRevistas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="msapplication-tap-highlight" content="no">
     <link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-pzjw8f+ua/Ct4ePfVgVq+81lXGc2xTCR8F8Xwa1NFv3cDZLx0kgm6H/iS9I5s1de" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 </head>
 <body>
@@ -31,6 +33,13 @@
                         <button class="close"></button>
                     </div> 
                     -->
+                    <ul class="header-menu nav">
+                        <li class="nav-item">
+                            <a href="{{url ('/cliente/'. $id )}}" class="nav-link">
+                            <i class="fa fa-arrow-left nav-link-icon"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
@@ -46,6 +55,10 @@
                                             <div tabindex="-1" class="dropdown-divider"></div>
                                             <div type="button" tabindex="0" class="dropdown-item">Nombre: {{$nombre}}</div>
                                             <div type="button" tabindex="0" class="dropdown-item">Correo: {{$correo}}</div>
+                                            <div tabindex="-1" class="dropdown-divider"></div>
+                                            <div type="button" tabindex="0" class="dropdown-item">
+                                                <a href="{{url ('/')}}">Cerrar sesión</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

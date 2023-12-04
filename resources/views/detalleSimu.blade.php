@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="/css/detalleSimu.css">
-    <title>Simulación Caso 1</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/yhqCG51/osito-Icono.png" />
+    <meta name="theme-color" content="#1885ed">
+    <title>SimulaRevistas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="msapplication-tap-highlight" content="no">
     <link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet">
@@ -30,6 +32,11 @@
                     </div>-->
                     <ul class="header-menu nav">
                         <li class="nav-item">
+                            <a href="{{url ('/cliente/'. $id )}}" class="nav-link">
+                            <i class="fa fa-arrow-left nav-link-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{url ('/cliente/'. $id .'/ayuda')}}" class="nav-link">
                             <i class="fa fa-question-circle nav-link-icon"></i>
                                 Ayuda
@@ -51,6 +58,10 @@
                                             <div tabindex="-1" class="dropdown-divider"></div>
                                             <div type="button" tabindex="0" class="dropdown-item">Nombre: {{$nombre}}</div>
                                             <div type="button" tabindex="0" class="dropdown-item">Correo: {{$correo}}</div>
+                                            <div tabindex="-1" class="dropdown-divider"></div>
+                                            <div type="button" tabindex="0" class="dropdown-item">
+                                                <a href="{{url ('/')}}">Cerrar sesión</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
