@@ -58,7 +58,7 @@
               </td>
               <td style="background:#eee;padding:20px;">
                 <strong>Detalles de la simulación realizada</strong><br>
-                <strong>N° de Simulación:</strong> {{$idSimu}}<br>
+                <strong>N° de Simulación:</strong> {{$counterm}}<br>
                 @if($tipo == 1)
                 <strong>Tipo de Simulación:</strong> Automática<br>
                 @elseif($tipo == 2)

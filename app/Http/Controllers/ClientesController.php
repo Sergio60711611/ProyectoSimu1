@@ -31,6 +31,17 @@ class ClientesController extends Controller
         $cliente = Clientes::find($id);
         return view('ayuda', compact('cliente'));
     }
+    public function createPdf($id)
+    {
+
+        $cliente = Clientes::find($id);
+        $lista = Simulaciones::where('id_clientes', $id )->get();
+
+        $pdf = Pdf::loadView('pdfHistoria', compact('cliente','lista'));
+        $pdf->setPaper('letter', 'landscape');
+        
+        return $pdf->stream();
+    }
     public function createSimuDetalle($id, $idSim)
     {
         $cliente = Clientes::find($id);
@@ -44,8 +55,9 @@ class ClientesController extends Controller
 
         return view('detalleSimu', compact('cliente','simulacion','simulacionIt','simulacionMeses'));
     }
-    public function pdf($id, $idSim)
+    public function pdf(Request $request,$id, $idSim)
     {
+        $counterm = $request->input('counterm');
         $cliente = Clientes::find($id);
         $simulacion = simulaciones::find($idSim);
 
@@ -55,7 +67,7 @@ class ClientesController extends Controller
         $simulacionMeses = Simulaciones::find($idSim); 
         $simulacionMeses['utilidad_meses'] = json_decode($simulacionMeses['utilidad_meses'], true);
 
-        $pdf = Pdf::loadView('pdf', compact('cliente','simulacion','simulacionIt','simulacionMeses'));
+        $pdf = Pdf::loadView('pdf', compact('cliente','simulacion','simulacionIt','simulacionMeses','counterm'));
         return $pdf->stream();
     }
 

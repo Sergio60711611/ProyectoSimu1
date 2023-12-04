@@ -21,6 +21,7 @@ Route::get('/login',"App\Http\Controllers\loginController@create");
 Route::get('/inicio',"App\Http\Controllers\inicioController@create");
 Route::get('/cliente/{id}',"App\Http\Controllers\loginController@createCliente");
 Route::get('/cliente/{id}/ayuda',"App\Http\Controllers\ClientesController@createAyuda");
+Route::get('/cliente/{id}/pdf',"App\Http\Controllers\ClientesController@createPdf");
 Route::get('/cliente/{id}/simulacion/{idSim}',"App\Http\Controllers\ClientesController@createSimuDetalle");
 Route::get('/cliente/{id}/simulacion/{idSim}/pdf',"App\Http\Controllers\ClientesController@pdf");
 

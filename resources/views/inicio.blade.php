@@ -17,6 +17,21 @@
 	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
+    <div id="carga" style="display: none;">
+        <div id="wrapper1">
+            <div id="mouse"></div>
+            <div class="loader">
+            </div>
+            <div class="loading-bar">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="status">
+                <div class="state"></div>
+                <div class="percentage"></div>
+            </div>
+        </div>
+    </div>
+    <div id="mainContent">
     @php
         $id = $cliente['id'];
         $nombre = $cliente['nombre'];
@@ -276,7 +291,7 @@
                                                             </div>
                                                             <!--Fin Q1 Y Q2-->
                                                             </p>
-                                                            <button type="submit" class="submit-btn" style="background-color: #4e656e;">Iniciar Simulación</button>
+                                                            <button type="submit" id="bottonnew" class="submit-btn" style="background-color: #4e656e;">Iniciar Simulación</button>
                                                             <!--Fin range input-->
                                                         </form>
                                                     </div>
@@ -579,7 +594,10 @@
                                                 <td style="white-space: nowrap;"><a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id) }}" title="Ver Detalle" style="background-color: #6e98a9; color: white; padding: 6px; margin:5px; border-radius: 3px;">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
-                                                <a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id.'/pdf') }}" title="Ver Detalle en pdf" style="background-color: #7a8082; color: white; padding: 6px; margin:5px; border-radius: 3px;">
+                                                @php 
+                                                    $counterm=$counter -1; 
+                                                @endphp
+                                                <a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id.'/pdf?counterm='.$counterm) }}" title="Ver Detalle en pdf" style="background-color: #7a8082; color: white; padding: 6px; margin:5px; border-radius: 3px;">
                                                     <i class="fa fa-file"></i>
                                                 </a>
                                                 </td>
@@ -589,6 +607,11 @@
                                         </table>
                                     </div>
                                     <div class="d-block text-center card-footer">
+                                    <ul class="nav">
+                                        <a href="{{url ('/cliente/'. $id .'/pdf')}}" title="Ver Detalle en pdf" style="background-color: #4e656e; color: white; padding: 9px; margin-left:10px; margin-top:10px;margin-bottom:10px; border-radius: 3px;">
+                                                Exportar Detalle de la simulaciones a pdf
+                                        </a>  
+                                    </ul>
                                     </div>
                                 </div>
                             </div>
@@ -629,6 +652,22 @@
     </div>
     <script type="text/javascript" src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</section>
+<script>
+    document.getElementById('bottonnew').addEventListener('click', function() {
+        document.getElementById('carga').style.display = 'flex';
+        document.getElementById('mainContent').style.display = 'none';
+    });
+</script>
+<script>
+//	window.onload = function(){
+//		var contenedor = document.getElementById('carga')
+//		contenedor.style.visibility = 'hidden';
+//		contenedor.style.opacity = '0';
+  //      contenedor.style.minHeight = '0';
+    //    contenedor.style.display = 'none';
+	//}
+</script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var ctx = document.getElementById('myChart').getContext('2d');
