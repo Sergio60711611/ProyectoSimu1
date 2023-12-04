@@ -552,7 +552,7 @@
                                                 <th class="text-center">Cantidad 1</th>
                                                 <th class="text-center">Cantidad 2</th>
                                                 <th class="text-center">Utilidad Obtenida</th>
-                                                <th class="text-center">Ver</th>
+                                                <th class="text-center">Acciones</th>
                                             </tr>
                                             </thead>
                                             @php 
@@ -576,8 +576,11 @@
                                                 <td class="text-center">{{$simulacion->Q1}} Uds.</td>
                                                 <td class="text-center">{{$simulacion->Q2}} Uds.</td>
                                                 <td class="text-center">{{$simulacion->Utilidad}} Bs.</td>
-                                                <td><a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id) }}" title="Ver Detalle" style="background-color: #6e98a9; color: white; padding: 6px; margin:5px; border-radius: 3px;">
+                                                <td style="white-space: nowrap;"><a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id) }}" title="Ver Detalle" style="background-color: #6e98a9; color: white; padding: 6px; margin:5px; border-radius: 3px;">
                                                     <i class="fa fa-eye"></i>
+                                                </a>
+                                                <a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id.'/pdf') }}" title="Ver Detalle en pdf" style="background-color: #7a8082; color: white; padding: 6px; margin:5px; border-radius: 3px;">
+                                                    <i class="fa fa-file"></i>
                                                 </a>
                                                 </td>
                                             </tr>
@@ -702,6 +705,5 @@
         });
     });
 </script>
-
 </body>
 </html>

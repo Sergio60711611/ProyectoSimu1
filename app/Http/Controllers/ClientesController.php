@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\clientes;
 use App\Models\simulaciones;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\BD;
 
@@ -42,6 +43,20 @@ class ClientesController extends Controller
         $simulacionMeses['utilidad_meses'] = json_decode($simulacionMeses['utilidad_meses'], true);
 
         return view('detalleSimu', compact('cliente','simulacion','simulacionIt','simulacionMeses'));
+    }
+    public function pdf($id, $idSim)
+    {
+        $cliente = Clientes::find($id);
+        $simulacion = simulaciones::find($idSim);
+
+        $simulacionIt = Simulaciones::find($idSim);
+        $simulacionIt['utilidad_iteraciones'] = json_decode($simulacionIt['utilidad_iteraciones'], true);
+
+        $simulacionMeses = Simulaciones::find($idSim); 
+        $simulacionMeses['utilidad_meses'] = json_decode($simulacionMeses['utilidad_meses'], true);
+
+        $pdf = Pdf::loadView('pdf', compact('cliente','simulacion','simulacionIt','simulacionMeses'));
+        return $pdf->stream();
     }
 
     /**

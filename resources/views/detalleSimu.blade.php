@@ -19,6 +19,24 @@
     <div class="app-container app-theme-white body-tabs-shadowfixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__content">
+                <div class="app-header-left">
+                    <!--
+                    <div class="search-wrapper">
+                        <div class="input-holder">
+                            <input type="text" class="search-input" placeholder="Type to search">
+                            <button class="search-icon"><span></span></button>
+                        </div>
+                        <button class="close"></button>
+                    </div>-->
+                    <ul class="header-menu nav">
+                        <li class="nav-item">
+                            <a href="{{url ('/cliente/'. $id .'/ayuda')}}" class="nav-link">
+                            <i class="fa fa-question-circle nav-link-icon"></i>
+                                Ayuda
+                            </a>
+                        </li>
+                    </ul>    
+                </div>
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
                         <div class="widget-content p-0">
@@ -66,9 +84,13 @@
                 <div class="app-main__inner">
                 <div class="card-header-tab card-header">
                                     <div class="card-header-title">
-                                        <i class="header-icon lnr-rocket icon-gradient bg-tempting-azure"> </i>
                                         <h4>SIMULACIÓN {{$idSimu}}:</h4>
                                     </div>
+                                    <ul class="nav">
+                                        <a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id.'/pdf') }}" title="Ver Detalle en pdf" style="background-color: #f6a821; color: white; padding: 9px; margin-left:10px; margin-top:10px;margin-bottom:10px; border-radius: 3px;">
+                                                Exportar Detalle de la simulación a pdf
+                                        </a>  
+                                    </ul>
                                 </div>
                     <div class="row">
                        <div class="col-md-12 col-lg-6">
