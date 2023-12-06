@@ -8,7 +8,7 @@
   <title>SimulaRevistas</title>
   <link rel="stylesheet" href="/css/home.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-qDIYqBhBBYRpyApG4VV0DN1L4exbkI4N3U+Z8g8VWzYjRQ9TOI4slxcnO6YIExK35lc/zqxAUOnuWmJwH/DBZA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 </head>
 
@@ -21,7 +21,8 @@
             <div class="header__menu">
                 <nav id="navbar" >
                 <ul class="header__elenco">
-                    <li class="header__el"><a href="/login" class="header__link">Registrarse</a></li>
+                    <li class="header__el"><a href="/login" class="header__link">Registrarse </a></li>
+                    <li class="header__ellink" style="display: none;visibility: hidden;"><a href="/login"><i class="fas fa-user" title="Usuario" id="iconoUser" style="color: #4e656e;"></i></a> </li>
                     <li class="header__el header__el--blue"><a href="/login" class="btn btn--white">Iniciar sesión →</a></li>
                 </ul>
                 </nav>
@@ -29,12 +30,12 @@
         </div>
     </header>
 
-    <div class="sect sect--padding-top">
+    <div class="sect sect--padding-top" id="sectSectPaddingTop">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="site">
-                        <h1 class="site__title">Pon a Prueba tus Decisiones: Realiza tus Simulaciones Aquí</h1>
+                        <h1 class="site__title" id="site__title">Pon a Prueba tus Decisiones: Realiza tus Simulaciones Aquí</h1>
                         <h2 class="site__subtitle">Toma Decisiones Acertadas</h2>
                         <div class="site__box-link">
                         </div>
@@ -47,12 +48,11 @@
     <div class="sect sect--white">
         <div class="container">
             <div class="row">
-                <h2 class="site__subtitle">Descripción de SIMULAREVISTAS</h2>
-
+                <h2 class="site__subtitle" id="site__subtitle">Descripción de SIMULAREVISTAS</h2>
             </div>
             <div class="row row--margin row--text-center">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
+                    <ol class="carousel-indicators" id="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
