@@ -6,11 +6,25 @@ use App\Models\clientes;
 use App\Models\simulaciones;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Exports\SimulacionesExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\BD;
 
 class ClientesController extends Controller
 {
+    public function excel($id){
+        $cliente = Clientes::find($id);
+
+        if (!$cliente) {
+            abort(404, 'Cliente no encontrado');
+        }
+
+        // Filtra las simulaciones por el id del cliente
+        $simulaciones = simulaciones::where('id_clientes', $cliente->id)->get();
+
+        return Excel::download(new SimulacionesExport($simulaciones,$cliente), 'ExcelSimu.xlsx');
+    }
     /**
      * Display a listing of the resource.
      *

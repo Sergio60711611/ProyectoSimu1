@@ -59,6 +59,12 @@
                                 Ayuda
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{url ('/cliente/'. $id .'/excel')}}" class="nav-link">
+                            <i class="fa fa-question-circle nav-link-icon"></i>
+                                Exportar excel
+                            </a>
+                        </li>
                     </ul>    
                 </div>
                 <div class="app-header-right">
