@@ -315,6 +315,17 @@
                                             <i class="header-icon lnr-apartment icon-gradient bg-love-kiss"> </i>
                                             RESULTADOS DE LA ÚLTIMA SIMULACIÓN
                                         </div>
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                @php
+                                                    $counterm = count($lista);
+                                                    $idSs = $ultSimulacion['id'];
+                                                @endphp
+                                                <a href="{{ url('/cliente/'.$id.'/simulacion/'.$idSs.'/pdf?counterm='.$counterm) }}" title="Ver Detalle en pdf" style="background-color: #f6a821; color: white; padding: 9px; margin-top:10px;margin-bottom:10px; border-radius: 3px;">
+                                                <i class="fa fa-file"></i>
+                                                </a>  
+                                            </li>
+                                        </ul>
                                     </div>
                                     <div class="card-body">
                                         <div class="tab-content">
@@ -438,7 +449,7 @@
                                                 </div>
                                                 <!--Terminan cuadros-->
                                                 <h6 class="text-muted text-uppercase font-size-md opacity-5 font-weight-normal">
-                                                    Resultados de la ultima simulacion
+                                                    Resultados de la ultima simulacion 
                                                 </h6>
                                                 @php
                                                     $Q1 = $ultSimulacion['Q1'];
@@ -597,7 +608,7 @@
                                                 <td class="text-center">{{$simulacion->Q1}} Uds.</td>
                                                 <td class="text-center">{{$simulacion->Q2}} Uds.</td>
                                                 <td class="text-center">{{$simulacion->Utilidad}} Bs.</td>
-                                                <td style="white-space: nowrap;"><a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id) }}" title="Ver Detalle" style="background-color: #6e98a9; color: white; padding: 6px; margin:5px; border-radius: 3px;">
+                                                <td style="white-space: nowrap;"><a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id.'?counterm='.$counterm) }}" title="Ver Detalle" style="background-color: #6e98a9; color: white; padding: 6px; margin:5px; border-radius: 3px;">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
                                                 @php 
@@ -615,7 +626,7 @@
                                     <div class="d-block text-center card-footer">
                                     <ul class="nav">
                                         <a href="{{url ('/cliente/'. $id .'/pdf')}}" title="Ver Detalle en pdf" style="background-color: #4e656e; color: white; padding: 9px; margin-left:10px; margin-top:10px;margin-bottom:10px; border-radius: 3px;">
-                                                Exportar Detalle de la simulaciones a pdf
+                                            Exportar Historial de simulaciones a pdf
                                         </a>  
                                     </ul>
                                     </div>
@@ -660,9 +671,19 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </section>
 <script>
-    document.getElementById('bottonnew').addEventListener('click', function() {
-        document.getElementById('carga').style.display = 'flex';
-        document.getElementById('mainContent').style.display = 'none';
+    document.getElementById('simulacionForm').addEventListener('submit', function(event) {
+        // Verifica si el formulario es válido según Bootstrap
+        if (this.checkValidity()) {
+            document.getElementById('carga').style.display = 'flex';
+            document.getElementById('mainContent').style.display = 'none';
+        } else {
+            // Evita que el formulario se envíe si hay problemas de validación
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        // Agrega la clase 'was-validated' para que Bootstrap muestre los mensajes de validación si es necesario
+        this.classList.add('was-validated');
     });
 </script>
 <script>

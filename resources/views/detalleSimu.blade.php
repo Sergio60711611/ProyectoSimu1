@@ -95,11 +95,11 @@
                 <div class="app-main__inner">
                 <div class="card-header-tab card-header">
                                     <div class="card-header-title">
-                                        <h4>SIMULACIÓN {{$idSimu}}:</h4>
+                                        <h4>SIMULACIÓN {{$counterm}}:</h4>
                                     </div>
                                     <ul class="nav">
                                         <a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id.'/pdf') }}" title="Ver Detalle en pdf" style="background-color: #f6a821; color: white; padding: 9px; margin-left:10px; margin-top:10px;margin-bottom:10px; border-radius: 3px;">
-                                                Exportar Detalle de la simulación a pdf
+                                        <i class="fa fa-file"></i>
                                         </a>  
                                     </ul>
                                 </div>

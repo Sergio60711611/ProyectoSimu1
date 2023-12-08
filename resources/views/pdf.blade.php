@@ -45,7 +45,7 @@
     <div class="container">
         <table width="100%">
           <tr>
-            <td width="75px"><div style="background: #ffffff url(https://i.ibb.co/0mJkK1N/image.png);width: 50px;height: 75px;margin-right: 10px;background-position: center;background-size: 50px;"></div>   </td>
+            <td width="75px"><div style="background: #ffffff url(https://i.ibb.co/0mJkK1N/image.png);width: 50px;height: 75px;margin-right: 10px;background-position: center;background-size: 50px;"></div> </td>
             <td width="600px"><div style="background: #4e656e;color:white;border-left: 15px solid #fff;padding-left: 30px;font-size: 26px;font-weight: bold;letter-spacing: -1px;height: 73px;line-height: 75px;">SIMULACIÓN OFICINA 11</div></td>
             <td></td>
           </tr>
