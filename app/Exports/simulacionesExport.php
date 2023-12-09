@@ -25,7 +25,7 @@ class simulacionesExport implements FromView, WithStyles , WithDrawings
 
     public function view(): View
     {
-        return view('excel', [
+        return view('excelHistoria', [
             'simulaciones' => $this->simulaciones,
             'cliente' => $this->cliente,
         ]);

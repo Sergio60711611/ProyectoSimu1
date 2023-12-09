@@ -7,13 +7,28 @@ use App\Models\simulaciones;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Exports\SimulacionesExport;
+use App\Exports\detalleSimulacionesExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\BD;
 
 class ClientesController extends Controller
 {
-    public function excel($id){
+    public function excel(Request $request,$id, $idSim){
+        $counterm = $request->input('counterm');
+        $cliente = Clientes::find($id);
+        $simulacion = simulaciones::find($idSim);
+
+        $simulacionIt = Simulaciones::find($idSim);
+        $simulacionIt['utilidad_iteraciones'] = json_decode($simulacionIt['utilidad_iteraciones'], true);
+
+        $simulacionMeses = Simulaciones::find($idSim); 
+        $simulacionMeses['utilidad_meses'] = json_decode($simulacionMeses['utilidad_meses'], true);
+
+        return Excel::download(new detalleSimulacionesExport($simulacion, $cliente,$simulacionIt,$simulacionMeses,$counterm), 'DetalleSimu.xlsx');
+
+    }
+    public function createExcel($id){
         $cliente = Clientes::find($id);
 
         if (!$cliente) {
@@ -23,7 +38,7 @@ class ClientesController extends Controller
         // Filtra las simulaciones por el id del cliente
         $simulaciones = simulaciones::where('id_clientes', $cliente->id)->get();
 
-        return Excel::download(new SimulacionesExport($simulaciones,$cliente), 'ExcelSimu.xlsx');
+        return Excel::download(new SimulacionesExport($simulaciones,$cliente), 'Historial-Simu.xlsx');
     }
     /**
      * Display a listing of the resource.
@@ -55,21 +70,7 @@ class ClientesController extends Controller
         $pdf->setPaper('letter', 'landscape');
         
         return $pdf->stream();
-    }
-    public function createSimuDetalle(Request $request, $id, $idSim)
-    {
-        $counterm = $request->input('counterm');
-        $cliente = Clientes::find($id);
-        $simulacion = simulaciones::find($idSim);
-
-        $simulacionIt = Simulaciones::find($idSim);
-        $simulacionIt['utilidad_iteraciones'] = json_decode($simulacionIt['utilidad_iteraciones'], true);
-
-        $simulacionMeses = Simulaciones::find($idSim); 
-        $simulacionMeses['utilidad_meses'] = json_decode($simulacionMeses['utilidad_meses'], true);
-
-
-        return view('detalleSimu', compact('cliente','simulacion','simulacionIt','simulacionMeses','counterm'));
+        //return $pdf->download('HistorialSimu.pdf');
     }
     public function pdf(Request $request,$id, $idSim)
     {
@@ -85,6 +86,22 @@ class ClientesController extends Controller
 
         $pdf = Pdf::loadView('pdf', compact('cliente','simulacion','simulacionIt','simulacionMeses','counterm'));
         return $pdf->stream();
+        //return $pdf->download('DetalleSimu.pdf');
+    }
+    public function createSimuDetalle(Request $request, $id, $idSim)
+    {
+        $counterm = $request->input('counterm');
+        $cliente = Clientes::find($id);
+        $simulacion = simulaciones::find($idSim);
+
+        $simulacionIt = Simulaciones::find($idSim);
+        $simulacionIt['utilidad_iteraciones'] = json_decode($simulacionIt['utilidad_iteraciones'], true);
+
+        $simulacionMeses = Simulaciones::find($idSim); 
+        $simulacionMeses['utilidad_meses'] = json_decode($simulacionMeses['utilidad_meses'], true);
+
+
+        return view('detalleSimu', compact('cliente','simulacion','simulacionIt','simulacionMeses','counterm'));
     }
 
     /**

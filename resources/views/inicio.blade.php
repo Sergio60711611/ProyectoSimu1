@@ -59,12 +59,6 @@
                                 Ayuda
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{url ('/cliente/'. $id .'/excel')}}" class="nav-link">
-                            <i class="fa fa-question-circle nav-link-icon"></i>
-                                Exportar excel
-                            </a>
-                        </li>
                     </ul>    
                 </div>
                 <div class="app-header-right">
@@ -327,8 +321,11 @@
                                                     $counterm = count($lista);
                                                     $idSs = $ultSimulacion['id'];
                                                 @endphp
-                                                <a href="{{ url('/cliente/'.$id.'/simulacion/'.$idSs.'/pdf?counterm='.$counterm) }}" title="Ver Detalle en pdf" style="background-color: #f6a821; color: white; padding: 9px; margin-top:10px;margin-bottom:10px; border-radius: 3px;">
-                                                <i class="fa fa-file"></i>
+                                                <a href="{{ url('/cliente/'.$id.'/simulacion/'.$idSs.'/pdf?counterm='.$counterm) }}" title="Ver Detalle en pdf" style="background-color: #e2504c; color: white; padding: 9px; margin-top:10px;margin-bottom:10px; border-radius: 3px;">
+                                                Exportar a pdf <i class="fa fa-file"></i>
+                                                </a>
+                                                <a href="{{ url('/cliente/'.$id.'/simulacion/'.$idSs.'/excel?counterm='.$counterm) }}" title="Ver Detalle en excel" style="background-color: #91c470; color: white; padding: 9px; margin-top:10px;margin-bottom:10px;margin-left:10px; border-radius: 3px;">
+                                                Exportar a excel <i class="fa fa-file"></i>
                                                 </a>  
                                             </li>
                                         </ul>
@@ -614,13 +611,16 @@
                                                 <td class="text-center">{{$simulacion->Q1}} Uds.</td>
                                                 <td class="text-center">{{$simulacion->Q2}} Uds.</td>
                                                 <td class="text-center">{{$simulacion->Utilidad}} Bs.</td>
-                                                <td style="white-space: nowrap;"><a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id.'?counterm='.$counterm) }}" title="Ver Detalle" style="background-color: #6e98a9; color: white; padding: 6px; margin:5px; border-radius: 3px;">
-                                                    <i class="fa fa-eye"></i>
-                                                </a>
                                                 @php 
                                                     $counterm=$counter -1; 
                                                 @endphp
-                                                <a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id.'/pdf?counterm='.$counterm) }}" title="Ver Detalle en pdf" style="background-color: #7a8082; color: white; padding: 6px; margin:5px; border-radius: 3px;">
+                                                <td style="white-space: nowrap;"><a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id.'?counterm='.$counterm) }}" title="Ver Detalle" style="background-color: #6e98a9; color: white; padding: 6px; margin:5px; border-radius: 3px;">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                                <a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id.'/pdf?counterm='.$counterm) }}" title="Ver Detalle en pdf" style="background-color: #e2504c; color: white; padding: 6px; margin:5px; border-radius: 3px;">
+                                                    <i class="fa fa-file"></i>
+                                                </a>
+                                                <a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id.'/excel?counterm='.$counterm) }}" title="Ver Detalle en excel" style="background-color: #91c470; color: white; padding: 6px; margin:5px; border-radius: 3px;">
                                                     <i class="fa fa-file"></i>
                                                 </a>
                                                 </td>
@@ -631,8 +631,13 @@
                                     </div>
                                     <div class="d-block text-center card-footer">
                                     <ul class="nav">
-                                        <a href="{{url ('/cliente/'. $id .'/pdf')}}" title="Ver Detalle en pdf" style="background-color: #4e656e; color: white; padding: 9px; margin-left:10px; margin-top:10px;margin-bottom:10px; border-radius: 3px;">
-                                            Exportar Historial de simulaciones a pdf
+                                        <a href="{{url ('/cliente/'. $id .'/pdf')}}" title="Ver Detalle en pdf" style="background-color: #e2504c; color: white; padding: 9px; margin-left:10px; margin-top:10px;margin-bottom:10px; border-radius: 3px;">
+                                            Exportar Historial a pdf
+                                            <i class="fa fa-file"></i>
+                                        </a> 
+                                        <a href="{{url ('/cliente/'. $id .'/excel')}}" title="Ver Detalle en excel" style="background-color: #91c470; color: white; padding: 9px; margin-left:10px; margin-top:10px;margin-bottom:10px;margin-left:10px; border-radius: 3px;">
+                                            Exportar Historial a excel
+                                            <i class="fa fa-file"></i>
                                         </a>  
                                     </ul>
                                     </div>

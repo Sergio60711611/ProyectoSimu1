@@ -97,9 +97,15 @@
                                     <div class="card-header-title">
                                         <h4>SIMULACIÓN {{$counterm}}:</h4>
                                     </div>
+                                    @php 
+                                        $counterm=$counterm; 
+                                    @endphp
                                     <ul class="nav">
-                                        <a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id.'/pdf') }}" title="Ver Detalle en pdf" style="background-color: #f6a821; color: white; padding: 9px; margin-left:10px; margin-top:10px;margin-bottom:10px; border-radius: 3px;">
-                                        <i class="fa fa-file"></i>
+                                        <a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id.'/pdf?counterm='.$counterm) }}" title="Ver Detalle en pdf" style="background-color: #e2504c; color: white; padding: 9px; margin-left:10px; margin-top:10px;margin-bottom:10px; border-radius: 3px;">
+                                        Exportar a pdf <i class="fa fa-file"></i>
+                                        </a>  
+                                        <a href="{{ url('/cliente/'.$id.'/simulacion/'.$simulacion->id.'/excel?counterm='.$counterm) }}" title="Ver Detalle en excel" style="background-color: #91c470; color: white; padding: 9px; margin-left:10px; margin-top:10px;margin-bottom:10px; border-radius: 3px;">
+                                        Exportar a excel <i class="fa fa-file"></i>
                                         </a>  
                                     </ul>
                                 </div>
@@ -109,7 +115,7 @@
                                 <div class="card-header-tab card-header">
                                     <div class="card-header-title">
                                         <i class="header-icon lnr-rocket icon-gradient bg-tempting-azure"> </i>
-                                        DETALLE de datos DE LA SIMULACIÓN {{$idSimu}}:
+                                        DETALLE de datos DE LA SIMULACIÓN {{$counterm}}:
                                     </div>
                                 </div>
                                 <div class="tab-content">
