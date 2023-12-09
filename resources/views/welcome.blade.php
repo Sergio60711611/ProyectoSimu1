@@ -35,7 +35,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="site">
-                        <h1 class="site__title" id="site__title">Pon a Prueba tus  Decisiones:Realiza tus Simulaciones Aquí</h1>
+                        <h1 class="site__title" id="site__title">Pon a Prueba tus 2vivi  Decisiones:Realiza tus Simulaciones Aquí</h1>
                         <h2 class="site__subtitle">Toma Decisiones Acertadas</h2>
                         <div class="site__box-link">
                         </div>
