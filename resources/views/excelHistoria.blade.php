@@ -41,9 +41,9 @@
                 <td style="border: 1px solid #dddddd; padding: 8px;">{{ $simulacion->d20 }}</td>
                 <td style="border: 1px solid #dddddd; padding: 8px;">{{ $simulacion->Q1 }}</td>
                 <td style="border: 1px solid #dddddd; padding: 8px;">{{ $simulacion->Q2 }}</td>
-                @if($tipo == 1)
+                @if($simulacion->tipo == 1)
                 <td style="border: 1px solid #dddddd; padding: 8px;">Automática</td>
-                @elseif($tipo == 2)
+                @elseif($simulacion->tipo == 2)
                 <td style="border: 1px solid #dddddd; padding: 8px;">Simulación ingresando "Cantidad 1" y "Cantidad 2"</td>
                 @endif
                 <td style="border: 1px solid #dddddd; padding: 8px;">{{ $simulacion->Utilidad }}</td>
