@@ -38,7 +38,7 @@ class ClientesController extends Controller
         // Filtra las simulaciones por el id del cliente
         $simulaciones = simulaciones::where('id_clientes', $cliente->id)->get();
 
-        return Excel::download(new SimulacionesExport($simulaciones,$cliente), 'Historial-Simu.xlsx');
+        return Excel::download(new simulacionesExport($simulaciones,$cliente), 'Historial-Simu.xlsx');
     }
     /**
      * Display a listing of the resource.
