@@ -6,7 +6,7 @@ use App\Models\clientes;
 use App\Models\simulaciones;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
-use App\Exports\SimulacionesExport;
+use App\Exports\simulacionesExport;
 use App\Exports\detalleSimulacionesExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
