@@ -25,6 +25,7 @@
                 <th style="border: 1px solid #dddddd; padding: 8px;">PRECIO DE <br>DEVOLUCIÓN <br>(20 DÍAS)</th>
                 <th style="border: 1px solid #dddddd; padding: 8px;">CANTIDAD 1</th>
                 <th style="border: 1px solid #dddddd; padding: 8px;">CANTIDAD 2</th>
+                <th style="border: 1px solid #dddddd; padding: 8px;">TIPO</th>
                 <th style="border: 1px solid #dddddd; padding: 8px;">UTILIDAD NETA<br> OBTENIDA</th>
             </tr>
         </thead>

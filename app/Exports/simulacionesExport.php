@@ -42,6 +42,7 @@ class simulacionesExport implements FromView, WithStyles , WithDrawings
         $sheet->getColumnDimension('I')->setWidth(15);
         $sheet->getColumnDimension('J')->setWidth(15);
         $sheet->getColumnDimension('K')->setWidth(15);
+        $sheet->getColumnDimension('L')->setWidth(15);
 
         $sheet->getRowDimension(2)->setRowHeight(67);
         $sheet->getRowDimension(3)->setRowHeight(34);
@@ -55,11 +56,11 @@ class simulacionesExport implements FromView, WithStyles , WithDrawings
         $sheet->getStyle('B6')->getAlignment()->setHorizontal('left');
         $sheet->getStyle('7:7')->getAlignment()->setHorizontal('center');
 
-        $sheet->mergeCells('C2:J2');
-        $sheet->mergeCells('B3:K3');
-        $sheet->mergeCells('B4:K4');
-        $sheet->mergeCells('B5:K5');
-        $sheet->mergeCells('B6:K6');
+        $sheet->mergeCells('C2:K2');
+        $sheet->mergeCells('B3:L3');
+        $sheet->mergeCells('B4:L4');
+        $sheet->mergeCells('B5:L5');
+        $sheet->mergeCells('B6:L6');
 
         $sheet->getStyle('B2:K2')->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
         $sheet->getStyle('B7:K7')->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
@@ -73,8 +74,8 @@ class simulacionesExport implements FromView, WithStyles , WithDrawings
         $sheet->setCellValue('B5', 'Nombre: ' . $this->cliente->nombre);
         $sheet->setCellValue('B6', 'Correo: ' . $this->cliente->correo);
         
-        $sheet->getStyle('B7:K' . (count($this->simulaciones) + 7))->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
-        $sheet->getStyle('B7:K' . (count($this->simulaciones) + 7))->getBorders()->getAllBorders()->setColor(new \PhpOffice\PhpSpreadsheet\Style\Color(\PhpOffice\PhpSpreadsheet\Style\Color::COLOR_BLACK));
+        $sheet->getStyle('B7:L' . (count($this->simulaciones) + 7))->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
+        $sheet->getStyle('B7:L' . (count($this->simulaciones) + 7))->getBorders()->getAllBorders()->setColor(new \PhpOffice\PhpSpreadsheet\Style\Color(\PhpOffice\PhpSpreadsheet\Style\Color::COLOR_BLACK));
 
         $sheet->getStyle('C2')->applyFromArray([
             'fill' => [
@@ -108,7 +109,7 @@ class simulacionesExport implements FromView, WithStyles , WithDrawings
         $drawing2->setDescription('This is my logo2');
         $drawing2->setPath(public_path('/img/ositoIcono.png'));
         $drawing2->setHeight(90);
-        $drawing2->setCoordinates('K2');
+        $drawing2->setCoordinates('L2');
 
         return [$drawing, $drawing2];
     }
